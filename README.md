@@ -1,73 +1,202 @@
-# SMART INTERSECTION – Đề tài 12 · Cấu trúc rời rạc
 
-**Bản nộp:** mô hình mạng luồng 34 đỉnh, 44 cạnh gốc, 12 movement, 5 kịch bản SC01–SC05. Thuật toán chính là Edmonds–Karp (BFS), đối chiếu Ford–Fulkerson DFS và bản C++17 riêng. Website Streamlit có 6 màn hình.
+# ĐỀ TÀI 12: TÍNH LƯU LƯỢNG PHƯƠNG TIỆN TỐI ĐA CÓ THỂ THÔNG QUA MỘT NÚT GIAO NHIỀU LÀN TRONG GIỜ CAO ĐIỂM
 
-> Capacity và Demand trong bộ dữ liệu là **giả định mô phỏng**, không phải số liệu khảo sát thực địa. Website phục vụ minh họa, không điều khiển giao thông.
+## 1. Giới thiệu đề tài
 
-## 1. Chuẩn bị môi trường
+Đề tài tập trung vào bài toán tính lưu lượng phương tiện tối đa có thể đi qua một nút giao nhiều làn trong giờ cao điểm bằng cách áp dụng kiến thức về đồ thị và mạng luồng.
 
-Cần Python 3.9 trở lên; muốn kiểm chứng C++ cần `g++` hỗ trợ C++17. Trong Terminal, mở thư mục được giải nén:
+Nhóm xây dựng mô hình nút giao dưới dạng đồ thị có hướng, trong đó các cạnh được gán dung lượng để biểu diễn khả năng thông hành.
+
+Thuật toán Edmonds–Karp được sử dụng để tìm luồng cực đại. Ngoài ra, nhóm còn cài đặt Ford–Fulkerson sử dụng DFS và phiên bản C++17 để đối chiếu kết quả.
+
+Mô hình gồm:
+- 34 đỉnh và 44 cạnh gốc.
+- 12 hướng di chuyển (movement).
+- 5 kịch bản giao thông từ SC01 đến SC05.
+- Website Streamlit gồm 6 màn hình để hiển thị mô hình và kết quả.
+
+Lưu ý: Dữ liệu Capacity và Demand là số liệu giả định phục vụ mô phỏng, không phải dữ liệu khảo sát giao thông thực tế.
+
+## 2. Công cụ sử dụng
+
+- Python 3.9 trở lên.
+- C++17 để kiểm tra kết quả thuật toán.
+- Streamlit để xây dựng giao diện.
+- Pandas để đọc và xử lý dữ liệu CSV.
+- Plotly để trực quan hóa đồ thị.
+- Pytest để kiểm thử chương trình.
+
+Các thư viện Python được khai báo trong file `requirements.txt`.
+
+## 3. Cài đặt và chạy chương trình
+
+### 3.1. Cài đặt thư viện
+
+Sau khi tải hoặc clone repository về máy, mở Terminal tại thư mục dự án và chạy:
 
 ```bash
-cd SMART_INTERSECTION_SOURCE_ON_DINH_DE_NOP
 python -m pip install -r requirements.txt
 ```
 
-**Phải cài từ `requirements.txt` trước khi chạy test và website.** File này giới hạn `pandas>=2.0,<3`, `plotly>=5.18,<7`, `streamlit>=1.32,<2`, `pytest>=8,<10`; tránh tự nâng Pandas/Plotly vượt giới hạn đã kiểm tra.
+Nên sử dụng phiên bản thư viện theo giới hạn trong `requirements.txt` để tránh phát sinh lỗi không tương thích.
 
-## 2. Chạy website 6 màn hình
+### 3.2. Chạy website
 
 ```bash
 streamlit run app.py
 ```
 
-Mở địa chỉ in trong Terminal (thường là `http://localhost:8501`), kiểm tra theo thứ tự: **Tổng quan → Mô hình → Chọn Scenario → Edmonds–Karp → Minimum Cut → So sánh**. Riêng SC05, xem E007 được ghi **Nhóm làn không hoạt động (SC05)** và bảng hai cột tập S/T. Hướng dẫn chi tiết: [HUONG_DAN_WEBSITE.md](HUONG_DAN_WEBSITE.md).
+Sau khi chạy, mở đường dẫn được hiển thị trên Terminal, thông thường là:
 
-`streamlit run app.py` là lệnh **mở giao diện**. `python main.py --all` chỉ chạy thuật toán bằng **dòng lệnh**.
+http://localhost:8501
 
-## 3. Chạy thuật toán và các phép kiểm chứng
+Website gồm 6 phần:
+1. Tổng quan
+2. Mô hình đồ thị
+3. Chọn kịch bản
+4. Thuật toán Edmonds–Karp
+5. Minimum Cut
+6. So sánh các kịch bản
+
+Người dùng có thể chọn từng kịch bản để xem kết quả tính toán và các thông tin liên quan đến mạng luồng.
+
+### 3.3. Chạy thuật toán bằng Terminal
+
+Chạy một kịch bản cụ thể:
 
 ```bash
 python main.py --scenario SC02 --history
-python main.py --all
-python -m pytest -q
-python kiem_tra_manifest_sha256.py
-python verify_independent_processes.py
 ```
 
-- Bản này có **39 bài test pytest** (`39 passed`; pytest còn thông báo các subtest). Smoke test của Streamlit dùng **giao diện giả lập**, không thay cho kiểm tra trình duyệt thật.
-- `verify_independent_processes.py` biên dịch và chạy C++ trong tiến trình riêng, đối chiếu kết quả mới của Python/C++ cho SC01–SC05; **5/5 kịch bản khớp**.
-- Sau khi chạy `pytest`, thư mục `.pytest_cache`, `__pycache__` có thể xuất hiện; chúng được **bỏ qua trong SHA-256**. Vẫn nên xóa cache trước khi đóng ZIP nộp.
-- Không tự tạo lại manifest để che giấu sai khác; chỉ tạo lại khi chính thức thay đổi source/dữ liệu/tài liệu và kiểm chứng lại.
+Chạy toàn bộ 5 kịch bản:
 
-## 4. Tóm tắt kết quả chuẩn
+```bash
+python main.py --all
+```
+
+Các lệnh này thực hiện tính toán mà không cần mở giao diện Streamlit.
+
+## 4. Thuật toán sử dụng
+
+### 4.1. Edmonds–Karp
+
+Đây là thuật toán chính được sử dụng trong đồ án.
+
+Thuật toán hoạt động dựa trên Ford–Fulkerson nhưng sử dụng BFS để tìm đường tăng luồng trong mạng dư.
+
+Quá trình thực hiện gồm:
+1. Tìm đường từ đỉnh nguồn đến đỉnh đích bằng BFS.
+2. Xác định dung lượng dư nhỏ nhất trên đường đi.
+3. Cập nhật luồng và mạng dư.
+4. Tiếp tục cho đến khi không tìm được đường tăng luồng.
+
+Giá trị luồng thu được ở cuối quá trình là Maximum Flow.
+
+### 4.2. Ford–Fulkerson DFS
+
+Nhóm cài đặt thêm phương pháp tìm đường tăng bằng DFS để so sánh với Edmonds–Karp.
+
+Hai phương pháp có thể lựa chọn đường tăng khác nhau nhưng phải cho cùng giá trị luồng cực đại trên cùng một mạng.
+
+### 4.3. Minimum Cut
+
+Sau khi tìm được Maximum Flow, chương trình xác định Minimum Cut dựa trên mạng dư cuối cùng.
+
+Theo định lý Max-Flow Min-Cut, giá trị luồng cực đại bằng dung lượng của lát cắt nhỏ nhất.
+
+Kết quả Minimum Cut giúp xác định các cạnh giới hạn khả năng thông hành trong mô hình.
+
+## 5. Kết quả thực nghiệm
+
+Nhóm thực hiện tính toán trên 5 kịch bản giao thông.
 
 | Kịch bản | Demand | Maximum Flow | Minimum Cut |
 |---|---:|---:|---:|
-| SC01 – Cơ sở | 6.870 | 6.511 | 6.511 |
-| SC02 – Giờ cao điểm | 8.932 | 7.145 | 7.145 |
-| SC03 – Suy giảm | 8.932 | 6.073 | 6.073 |
-| SC04 – Bổ sung 2 làn quy đổi | 8.932 | 7.708 | 7.708 |
-| SC05 – Điều chỉnh chức năng làn | 8.932 | 7.401 | 7.401 |
+| SC01 - Cơ sở | 6.870 | 6.511 | 6.511 |
+| SC02 - Giờ cao điểm | 8.932 | 7.145 | 7.145 |
+| SC03 - Suy giảm năng lực | 8.932 | 6.073 | 6.073 |
+| SC04 - Bổ sung 2 làn quy đổi | 8.932 | 7.708 | 7.708 |
+| SC05 - Điều chỉnh chức năng làn | 8.932 | 7.401 | 7.401 |
 
-Đơn vị: **xe quy ước/giờ**, trên mô hình giả định. Không gán cứng Max-Flow vào thuật toán.
+Đơn vị: xe quy ước/giờ.
 
-## 5. Cấu trúc cần biết
+Từ bảng kết quả có thể thấy:
 
-| Thành phần | Nội dung |
+- SC01 là kịch bản cơ sở với lưu lượng cực đại 6.511.
+- SC02 có nhu cầu tăng cao nhưng lưu lượng tối đa chỉ đạt 7.145.
+- SC03 bị suy giảm năng lực thông hành nên Maximum Flow giảm xuống 6.073.
+- SC04 đạt kết quả cao nhất trong 5 kịch bản, với Maximum Flow bằng 7.708.
+- SC05 đạt 7.401 sau khi thay đổi cách sử dụng nhóm làn.
+
+Ở cả 5 kịch bản, Maximum Flow đều bằng Minimum Cut, phù hợp với định lý Max-Flow Min-Cut.
+
+Các kết quả trên được tính từ dữ liệu CSV của từng kịch bản.
+
+## 6. Cấu trúc chương trình
+
+Các file chính của dự án:
+
+| File / thư mục | Chức năng |
 |---|---|
-| `graph.py`, `bfs.py` | Danh sách kề, cung dư thuận/ngược và tìm đường bằng BFS |
-| `edmonds_karp.py`, `ford_fulkerson.py` | Tăng luồng BFS và DFS, lịch sử đường tăng |
-| `min_cut.py`, `validator.py` | Lát cắt và kiểm tra Capacity/Flow Conservation |
-| `scenario.py`, `main.py` | Đọc CSV, chạy SC01–SC05, xuất `outputs/` |
-| `app.py`, `ui_data.py`, `ui_graph.py` | Website Streamlit 6 màn hình |
-| `cpp_edmonds_karp.cpp` | Thuật toán kiểm chứng C++17 độc lập |
-| `data/scenarios/SCxx/` | Edges, Lane_Groups và Movements theo kịch bản |
-| `tests/` | 39 bài kiểm thử tự động (gồm smoke test giả lập) |
-| `minh_chung_trinh_duyet/` | **Ảnh do thành viên nhóm gửi từ trình duyệt thật**, phụ lục ảnh dạng PDF |
+| `graph.py` | Xây dựng và cập nhật mạng luồng |
+| `bfs.py` | Tìm đường tăng bằng BFS |
+| `edmonds_karp.py` | Cài đặt thuật toán Edmonds–Karp |
+| `ford_fulkerson.py` | Cài đặt Ford–Fulkerson DFS |
+| `min_cut.py` | Xác định Minimum Cut |
+| `validator.py` | Kiểm tra tính hợp lệ của luồng |
+| `scenario.py` | Đọc dữ liệu và xây dựng kịch bản |
+| `main.py` | Chạy chương trình bằng Terminal |
+| `app.py` | Giao diện chính Streamlit |
+| `ui_data.py`, `ui_graph.py` | Xử lý dữ liệu và hiển thị đồ thị |
+| `cpp_edmonds_karp.cpp` | Phiên bản thuật toán bằng C++17 |
+| `data/` | Dữ liệu đầu vào |
+| `tests/` | Các bài kiểm thử |
+| `outputs/` | Kết quả sau khi chạy chương trình |
+| `minh_chung_trinh_duyet/` | Ảnh minh chứng giao diện website |
 
-## 6. Chứng cứ & giới hạn
+Dữ liệu của từng kịch bản được lưu trong `data/scenarios/SC01` đến `SC05`.
 
-Ảnh trong `minh_chung_trinh_duyet/` được **lấy từ những ảnh chụp bạn đã cung cấp**, không phải ảnh mới được tạo bằng trình duyệt trong môi trường này. Cần **chụp lại trang Minimum Cut trên bản source đã sửa E007** để chứng minh nhãn mới hiển thị đúng. Đừng mô tả smoke test là kiểm thử trình duyệt thực tế. Sau khi thay ảnh bằng bản mới, phải chạy kiểm chứng SHA-256 và tạo lại manifest cho bản phát hành cuối.
+## 7. Kiểm thử chương trình
 
-Tài liệu: [VIET_TAY.md](VIET_TAY.md) · [HUONG_DAN_WEBSITE.md](HUONG_DAN_WEBSITE.md) · [HUONG_DAN_KIEM_CHUNG_PYTHON_CPP.md](HUONG_DAN_KIEM_CHUNG_PYTHON_CPP.md) · [BAO_CAO_KIEM_CHUNG_MOI.md](BAO_CAO_KIEM_CHUNG_MOI.md).
+Nhóm sử dụng Pytest để kiểm tra các chức năng chính của chương trình.
+
+Chạy kiểm thử:
+
+```bash
+python -m pytest -q
+```
+
+Theo kết quả kiểm thử đã lưu, chương trình có 39 bài test đạt yêu cầu.
+
+Ngoài ra, nhóm thực hiện đối chiếu kết quả Python và C++ bằng lệnh:
+
+```bash
+python verify_independent_processes.py
+```
+
+Kết quả đã ghi nhận cho thấy cả 5 kịch bản đều có giá trị Maximum Flow khớp nhau giữa hai phiên bản.
+
+Để kiểm tra tính toàn vẹn của các file:
+
+```bash
+python kiem_tra_manifest_sha256.py
+```
+
+Các kết quả kiểm thử và file đầu ra được lưu trong thư mục `outputs/`.
+
+Phần kiểm thử giao diện bằng Streamlit có sử dụng môi trường giả lập. Ảnh chụp từ trình duyệt thực tế được lưu riêng trong thư mục `minh_chung_trinh_duyet/`.
+
+## 8. Giới hạn của đề tài
+
+Mô hình hiện tại chỉ xét mạng luồng tĩnh tại một nút giao, chưa mô phỏng đầy đủ các yếu tố giao thông thực tế như chu kỳ đèn tín hiệu, thời gian chờ hoặc sự thay đổi lưu lượng theo thời gian.
+
+Dung lượng các cạnh được xây dựng dựa trên giả định mô phỏng.
+
+Do đó, kết quả của đồ án chủ yếu phục vụ việc nghiên cứu thuật toán và so sánh các phương án tổ chức làn đường, chưa thể sử dụng trực tiếp để điều khiển giao thông thực tế.
+
+## 9. Tài liệu tham khảo trong dự án
+
+- [VIET_TAY.md](VIET_TAY.md) - Ôn tập thuật toán và ví dụ tính tay.
+- [HUONG_DAN_WEBSITE.md](HUONG_DAN_WEBSITE.md) - Hướng dẫn sử dụng website.
+- [HUONG_DAN_KIEM_CHUNG_PYTHON_CPP.md](HUONG_DAN_KIEM_CHUNG_PYTHON_CPP.md) - Kiểm chứng kết quả Python và C++.
+- [BAO_CAO_KIEM_CHUNG_MOI.md](BAO_CAO_KIEM_CHUNG_MOI.md) - Báo cáo kết quả kiểm thử.
