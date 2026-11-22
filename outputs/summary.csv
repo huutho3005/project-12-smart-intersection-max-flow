@@ -1,0 +1,6 @@
+﻿scenario_id,demand,max_flow,min_cut,unserved,bfs_iterations,dfs_iterations
+SC01,6870,6511,6511,359,12,12
+SC02,8932,7145,7145,1787,12,12
+SC03,8932,6073,6073,2859,12,12
+SC04,8932,7708,7708,1224,12,12
+SC05,8932,7401,7401,1531,13,15

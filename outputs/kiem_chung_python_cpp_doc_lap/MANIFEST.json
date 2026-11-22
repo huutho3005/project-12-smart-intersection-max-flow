@@ -1,0 +1,484 @@
+{
+  "timestamp_utc": "2026-11-22T01:20:25.515056+00:00",
+  "python_executable": "/opt/pyvenv/bin/python",
+  "python_version": "3.13.5",
+  "cpp_compiler": "/usr/bin/g++",
+  "source_python_sha256": "5ef7ce3df1ebc7c9ff76f9833383fcc189501fee558b45759fc72623b09892b7",
+  "source_cpp_sha256": "560f3abd3277b729b0850ba6a0927f65366daa35c05ad7312b5fcb862a704b6b",
+  "input_files": [
+    {
+      "file": "data/Nodes.csv",
+      "sha256": "a3f98ade1ec62ea03673e4fb8ea3440cce350d9c52d909e3f2c4abf6c29c9b98"
+    },
+    {
+      "file": "data/scenarios/SC01/Edges.csv",
+      "sha256": "545e4b2c2cd1b00667ccfe98044374e4fb1567a374b2b82dbc2c5c340aa54230"
+    },
+    {
+      "file": "data/scenarios/SC02/Edges.csv",
+      "sha256": "3ddf979c27b27e842f75c4f2be7f26a7b84b7d8ca4ee95510f23a3325f3c994f"
+    },
+    {
+      "file": "data/scenarios/SC03/Edges.csv",
+      "sha256": "a8087144db1c81fd49e200c80e0b4245d8e5340b9be9f176ae094f305b125fcb"
+    },
+    {
+      "file": "data/scenarios/SC04/Edges.csv",
+      "sha256": "4537674c448c8e6f75f4ed742c3a07a9efa179501e6285aebaf885761021ae36"
+    },
+    {
+      "file": "data/scenarios/SC05/Edges.csv",
+      "sha256": "35359288fb7e5a41066238243217254f8513b8d44d42c663dba8385692003be9"
+    }
+  ],
+  "all_version_files": [
+    {
+      "file": "BAO_CAO_KIEM_CHUNG_MOI.md",
+      "category": "documentation",
+      "sha256": "ee046cb96ff3136aaa46e12735e01ed8eedf86045b856dad0bcc738340cd05b2"
+    },
+    {
+      "file": "BAO_CAO_SUA_3_DIEM.md",
+      "category": "documentation",
+      "sha256": "3d978edd46a5cfe1db73e0b9c9562124e571e731825273f5623d84d360d41176"
+    },
+    {
+      "file": "DONG_BO_CHUONG_4.md",
+      "category": "documentation",
+      "sha256": "42d44fd376a21de34a1c5dc73f73ea13b153ef8b0ff7d787c308bb72066e0561"
+    },
+    {
+      "file": "GHI_CHU_SUA_E007_VA_TAP_ST.md",
+      "category": "documentation",
+      "sha256": "bb489f70276c007e9348b7e4308972c295564f0569f79488e28c605cb1ca1d0a"
+    },
+    {
+      "file": "GHI_CHU_SUA_LOI_MINCUT.md",
+      "category": "documentation",
+      "sha256": "b1dd8420f0a115596034a8348e455d39ffa57de39b8c0d61ab0636ba15f17de8"
+    },
+    {
+      "file": "HUONG_DAN_EDGE_CASES_CHUONG_6.md",
+      "category": "documentation",
+      "sha256": "6692a04ff9b20fc5a3fd43a5482df692406391229a097ba0420052735d5750f9"
+    },
+    {
+      "file": "HUONG_DAN_KIEM_CHUNG_PYTHON_CPP.md",
+      "category": "documentation",
+      "sha256": "578a7d8df9a38c4cb3faa4b2f6a6ce8b49e977e5634f2fe95105ac0d77a27a6d"
+    },
+    {
+      "file": "HUONG_DAN_WEBSITE.md",
+      "category": "documentation",
+      "sha256": "6740c48f90a2f65f15b0e29b87a6390fa8bee942a159610de5eeed784eee809f"
+    },
+    {
+      "file": "KIEM_TRA_TRUOC_KHI_NOP.md",
+      "category": "documentation",
+      "sha256": "b9b19575f01f9d91077014b4d6244bca715954f4f8adcff305ae86235b3461b9"
+    },
+    {
+      "file": "LOG_KIEM_CHUNG.txt",
+      "category": "documentation",
+      "sha256": "f3027044a359fad0e0a333e30ac07240b8e2aa53f9450df82073b03f91ec4934"
+    },
+    {
+      "file": "README.md",
+      "category": "documentation",
+      "sha256": "cbd7d4734be30580c8bb4cb86919312ffceb7df8bd9a84a6bddbfa11fed1b709"
+    },
+    {
+      "file": "VIET_TAY.md",
+      "category": "documentation",
+      "sha256": "0163949d7f64af3a39c45732b512f5107e6aeb817e5b9d4e8b1655d7fc56aca7"
+    },
+    {
+      "file": "app.py",
+      "category": "python_source",
+      "sha256": "91d215fc106ff3096afb26a3ddec3e5e5aa0b745bc3b97d9982c99b60cc1e759"
+    },
+    {
+      "file": "bfs.py",
+      "category": "python_source",
+      "sha256": "2f8fb89312153eac5b625a0565e13f59862120ccc373b7f5224184ebab4b47a1"
+    },
+    {
+      "file": "cpp_edmonds_karp.cpp",
+      "category": "cpp_source",
+      "sha256": "560f3abd3277b729b0850ba6a0927f65366daa35c05ad7312b5fcb862a704b6b"
+    },
+    {
+      "file": "data/Edges.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "545e4b2c2cd1b00667ccfe98044374e4fb1567a374b2b82dbc2c5c340aa54230"
+    },
+    {
+      "file": "data/Lane_Groups.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "9a164319da11ef91d2652d73d3650c66a7f86de086e6cda4f1674a621abc1e54"
+    },
+    {
+      "file": "data/Movements.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "ce6bac5e3bdc06a2141f3e3f993b1bb0b5266abfea61fe71b3ba955fd07166e0"
+    },
+    {
+      "file": "data/Nodes.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "a3f98ade1ec62ea03673e4fb8ea3440cce350d9c52d909e3f2c4abf6c29c9b98"
+    },
+    {
+      "file": "data/Scenarios.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "678b54b1f0f633481aad83f816b8d9b063148175476175a87333032bbb6ee324"
+    },
+    {
+      "file": "data/scenarios/SC01/Edges.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "545e4b2c2cd1b00667ccfe98044374e4fb1567a374b2b82dbc2c5c340aa54230"
+    },
+    {
+      "file": "data/scenarios/SC01/Lane_Groups.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "18f72beb887833f44890ada6e0502e4efc447a914191d1fe96965dddcebf25f9"
+    },
+    {
+      "file": "data/scenarios/SC01/Movements.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "2f2687a03d705af8932fb5708c58ac7239f25ff794c9d91e8bff5b0e1316885e"
+    },
+    {
+      "file": "data/scenarios/SC02/Edges.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "3ddf979c27b27e842f75c4f2be7f26a7b84b7d8ca4ee95510f23a3325f3c994f"
+    },
+    {
+      "file": "data/scenarios/SC02/Lane_Groups.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "321b3724f0857279bddbc8d990631b1a0deecfed3d63e6c5a3a482460ed9b3d9"
+    },
+    {
+      "file": "data/scenarios/SC02/Movements.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "85b2456927b87b21639e8eb9f6db33180d138286fe272aef0886d7f21da46f0b"
+    },
+    {
+      "file": "data/scenarios/SC03/Edges.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "a8087144db1c81fd49e200c80e0b4245d8e5340b9be9f176ae094f305b125fcb"
+    },
+    {
+      "file": "data/scenarios/SC03/Lane_Groups.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "74456b30dec9e0ef12e036d434fd872f82a4cb9fc3463909ef3c1969b5684379"
+    },
+    {
+      "file": "data/scenarios/SC03/Movements.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "402bc687cc5707806f2d7128b4a8a0963928b9b955f808635085d6c6275732f2"
+    },
+    {
+      "file": "data/scenarios/SC04/Edges.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "4537674c448c8e6f75f4ed742c3a07a9efa179501e6285aebaf885761021ae36"
+    },
+    {
+      "file": "data/scenarios/SC04/Lane_Groups.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "9a4cffedb13f4945313e5abd382c39f412b5275211f26f05f0dbb6e8768cd8b1"
+    },
+    {
+      "file": "data/scenarios/SC04/Movements.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "7b59d556315d89b0e410289efe2bd6abd798de392aeb4d5bf8486b357eada2ee"
+    },
+    {
+      "file": "data/scenarios/SC05/Edges.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "35359288fb7e5a41066238243217254f8513b8d44d42c663dba8385692003be9"
+    },
+    {
+      "file": "data/scenarios/SC05/Lane_Groups.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "210b529b1e71dc6c93c0b1a763209ef31380e6fe875b65e1cb5c62179efe088e"
+    },
+    {
+      "file": "data/scenarios/SC05/Movements.csv",
+      "category": "data_and_scenario_metadata",
+      "sha256": "a5771775e1473c16aef8438dcb85c1be8d12199405cc13da4363990ddef7e4e1"
+    },
+    {
+      "file": "edge_cases.py",
+      "category": "python_source",
+      "sha256": "ff1a31fc8bf90fd912ef15e1c103244e001575ab2bd23ae0cc41441b26bd6b26"
+    },
+    {
+      "file": "edmonds_karp.py",
+      "category": "python_source",
+      "sha256": "5ef7ce3df1ebc7c9ff76f9833383fcc189501fee558b45759fc72623b09892b7"
+    },
+    {
+      "file": "ford_fulkerson.py",
+      "category": "python_source",
+      "sha256": "e93150e0e9c290d9d483ce0ae41d76d3c5e4cfc9522888a10de10ce244e01654"
+    },
+    {
+      "file": "graph.py",
+      "category": "python_source",
+      "sha256": "ac5e455de35ef4333e6b82fb43a791595dc877c277e08896bd08367531359ae1"
+    },
+    {
+      "file": "kiem_tra_co_y_sai_khac.py",
+      "category": "python_source",
+      "sha256": "218a26c0984cd6a78133a0865ded2aa879e946b3b829388db1ca37cef61d594f"
+    },
+    {
+      "file": "kiem_tra_csv_thay_doi_thuc_te.py",
+      "category": "python_source",
+      "sha256": "6e12ce0f9d174e775ee5acd38e88991ef8bef48fd7dd184dd801691e4407d518"
+    },
+    {
+      "file": "kiem_tra_manifest_sha256.py",
+      "category": "python_source",
+      "sha256": "9dd17fbe82bbebfa573ee3c3a7a3a9d1e8c16f3d7e16936657b07e6470d480f9"
+    },
+    {
+      "file": "main.py",
+      "category": "python_source",
+      "sha256": "4af9c6c1bbc9d6412cabc115e1c350fd48c90040e892fec478857b857e653ced"
+    },
+    {
+      "file": "min_cut.py",
+      "category": "python_source",
+      "sha256": "0f05ee7ac7c20582175058e6b60dc671483d7ae0e5fa589f80122cf34850de61"
+    },
+    {
+      "file": "minh_chung_trinh_duyet/01_Tong_quan.png",
+      "category": "browser_screenshot_evidence",
+      "sha256": "6279d98877b320fcca4fcb76ca281cae278c1407567b7ab2cb05d66421113149"
+    },
+    {
+      "file": "minh_chung_trinh_duyet/02_Mo_hinh_do_thi.png",
+      "category": "browser_screenshot_evidence",
+      "sha256": "35d001811ff55dff4b5ef8bd82af20d66d55297a7bb6aafd8874f4648336a097"
+    },
+    {
+      "file": "minh_chung_trinh_duyet/03_Chon_SC05.png",
+      "category": "browser_screenshot_evidence",
+      "sha256": "a1c59ed55798c4a2f3a183a6ac88d11599abe19ea89ef01f09863a14d9543dc6"
+    },
+    {
+      "file": "minh_chung_trinh_duyet/04_Edmonds_Karp_SC05.png",
+      "category": "browser_screenshot_evidence",
+      "sha256": "454dc6867b23f14104defee29b8eee7dda806138c9d5c73fe39ba95074b6fbc3"
+    },
+    {
+      "file": "minh_chung_trinh_duyet/05_Min_Cut_do_thi.png",
+      "category": "browser_screenshot_evidence",
+      "sha256": "420cde10086909a04d935c43f35ea951c37fd3a34c5bd0eb933b7207e2d7546c"
+    },
+    {
+      "file": "minh_chung_trinh_duyet/06_So_sanh_5_kich_ban.png",
+      "category": "browser_screenshot_evidence",
+      "sha256": "d4645b92780d7b16e50ae4f3d552eec089c13890327f4ff441e9e0c7ad9e63a3"
+    },
+    {
+      "file": "minh_chung_trinh_duyet/HUONG_DAN_ANH_MINH_CHUNG.md",
+      "category": "browser_screenshot_evidence",
+      "sha256": "5bbfce8fdff402fe111c5ec99769a5d71107c7f4be358055829cddfd1cd5002e"
+    },
+    {
+      "file": "minh_chung_trinh_duyet/PHU_LUC_ANH_WEBSITE_6_MAN_HINH.pdf",
+      "category": "browser_screenshot_evidence",
+      "sha256": "d23f6284c50a21ff2f07045af41848f166951fa2964d95e76e112a38c4c40b6b"
+    },
+    {
+      "file": "reference/Kiem_Chung_Ket_Qua.csv",
+      "category": "reference_test_outputs",
+      "sha256": "ff3ed289307bfb45a31182dccc64c4348a4178a594b7a7bbf87906d078bf4e4a"
+    },
+    {
+      "file": "reference/Luong_12_Movement.csv",
+      "category": "reference_test_outputs",
+      "sha256": "ed480d626402b1456e7d3165f91dd29aa27d283cd2c0bbedc8f33a33645e5454"
+    },
+    {
+      "file": "reference/Min_Cut.csv",
+      "category": "reference_test_outputs",
+      "sha256": "317192076828a4fb6d1fa77344d948c83bf92cd052fa752bdd7156c08eb4c3e4"
+    },
+    {
+      "file": "report_cut.py",
+      "category": "python_source",
+      "sha256": "d05186a94bb07863a9bf7766f4f2cd65b99bc1cb6b5e0cd59b77ed9fb6d91081"
+    },
+    {
+      "file": "requirements.txt",
+      "category": "documentation",
+      "sha256": "21a30b8d82542acf6ddfbd5baccc70b7e70ae4e0db6deb63deece625b6dc0592"
+    },
+    {
+      "file": "run_edge_cases.py",
+      "category": "python_source",
+      "sha256": "6e421704e77c1ce1b6f35ca74bf9360c1a3c3b27178f7f49540a43c1ee3ae671"
+    },
+    {
+      "file": "scenario.py",
+      "category": "python_source",
+      "sha256": "44f57906b440c485203071f678d6d004e54f1b4bdb7a92765922a725e9e8376c"
+    },
+    {
+      "file": "tests/fixtures/edge_cases/EC01/Edges.csv",
+      "category": "test_code_or_fixture",
+      "sha256": "775608ceadd17dc78a8e05ceece14fc35aead1d67c04432f81ba91b12fd77ef7"
+    },
+    {
+      "file": "tests/fixtures/edge_cases/EC01/Nodes.csv",
+      "category": "test_code_or_fixture",
+      "sha256": "fb012e201368a82a2992430f3c93b438a722822a9a366a4c0cf3c26aad8a1318"
+    },
+    {
+      "file": "tests/fixtures/edge_cases/EC02/Edges.csv",
+      "category": "test_code_or_fixture",
+      "sha256": "3d8285a8cb467c9a3e95bc41c303e606d7e39fa5712a445c13641d3342a570d4"
+    },
+    {
+      "file": "tests/fixtures/edge_cases/EC02/Nodes.csv",
+      "category": "test_code_or_fixture",
+      "sha256": "47fb030af1be31b9bb58290fad48ac46719a38bf83f5f145bd0d6eec926acd29"
+    },
+    {
+      "file": "tests/fixtures/edge_cases/EC03_A/Edges.csv",
+      "category": "test_code_or_fixture",
+      "sha256": "749c1d70affebbc69e301013cf87c0b8f4a26bd7502bbdc1317cb8aa9e0d056f"
+    },
+    {
+      "file": "tests/fixtures/edge_cases/EC03_A/Nodes.csv",
+      "category": "test_code_or_fixture",
+      "sha256": "9f60ec2be8ebb3015128b0db2ba7bbbbead4c1c688e8dd0470a506f84d7a8be0"
+    },
+    {
+      "file": "tests/fixtures/edge_cases/EC03_B/Edges.csv",
+      "category": "test_code_or_fixture",
+      "sha256": "c8d7bae041647a599c69138189847fa473fc65f0027f449d27401e49e5ca7144"
+    },
+    {
+      "file": "tests/fixtures/edge_cases/EC03_B/Nodes.csv",
+      "category": "test_code_or_fixture",
+      "sha256": "140f9eb405d2f64e452fa921b8ef692d247a089ed555321bebaa528844eb6aeb"
+    },
+    {
+      "file": "tests/fixtures/edge_cases/EC04/Edges.csv",
+      "category": "test_code_or_fixture",
+      "sha256": "deb26f1f505e152d23dc6c893f87c929682d8deb4c3be19e8b58661897b16268"
+    },
+    {
+      "file": "tests/fixtures/edge_cases/EC04/Nodes.csv",
+      "category": "test_code_or_fixture",
+      "sha256": "140f9eb405d2f64e452fa921b8ef692d247a089ed555321bebaa528844eb6aeb"
+    },
+    {
+      "file": "tests/fixtures/edge_cases/EC05/Edges.csv",
+      "category": "test_code_or_fixture",
+      "sha256": "ee6e6c89d369bb2df821dc717dd5e7c65b453751f3e50406b284c0d9e8ec8752"
+    },
+    {
+      "file": "tests/fixtures/edge_cases/EC05/Nodes.csv",
+      "category": "test_code_or_fixture",
+      "sha256": "7d853a26377d6a8aebb1cf1acba24e8cca19be4209862016ad40ad70f1cac360"
+    },
+    {
+      "file": "tests/fixtures/edge_cases/EC06/Edges.csv",
+      "category": "test_code_or_fixture",
+      "sha256": "1739c406085feb403ffbc2f485c9213610cee7fbc7ec4aa91e9507fd7c1fa029"
+    },
+    {
+      "file": "tests/fixtures/edge_cases/EC06/Nodes.csv",
+      "category": "test_code_or_fixture",
+      "sha256": "f290562cd88cb35631a416940f71bf17b48a47562da8a195d45c959899de2697"
+    },
+    {
+      "file": "tests/fixtures/edge_cases/cases.csv",
+      "category": "test_code_or_fixture",
+      "sha256": "f056aada33e381b55470197805a794fce53a96d9b31da95c4c6159b4505c4518"
+    },
+    {
+      "file": "tests/test_algorithms.py",
+      "category": "test_code_or_fixture",
+      "sha256": "948d77d4d4c150c0fb80b56c92cc74d1829caf771f685928ace159de98fff5d5"
+    },
+    {
+      "file": "tests/test_edge_cases.py",
+      "category": "test_code_or_fixture",
+      "sha256": "240d71333397b0b6ee3a4f5c8e1aea01453b1abbb28b7245a1f4981fef7c0335"
+    },
+    {
+      "file": "tests/test_manifest_integrity.py",
+      "category": "test_code_or_fixture",
+      "sha256": "033a217c86167f83ccc3446f163ebfc9e0cd7ec0f8c3c4b46c4a7256e14f5e1b"
+    },
+    {
+      "file": "tests/test_min_cut_metadata.py",
+      "category": "test_code_or_fixture",
+      "sha256": "a3e8190370767cb627e36445ac422c68e70abe7bd18c016c13b1421326830ea3"
+    },
+    {
+      "file": "tests/test_residual_arc_identity.py",
+      "category": "test_code_or_fixture",
+      "sha256": "0491526ad7aea5949a743ece310de44c31e11568ddb6705a21ab4588a2baf769"
+    },
+    {
+      "file": "tests/test_streamlit_ui_smoke.py",
+      "category": "test_code_or_fixture",
+      "sha256": "dfd6b08a5aa2558e7fa611922a2bf53a9f8d7b80cf4aa056bf9d50119cc9566a"
+    },
+    {
+      "file": "tests/test_website_bridge.py",
+      "category": "test_code_or_fixture",
+      "sha256": "e7198dde2d5280391ec8dd4e5769b793afad9a8480231b58f5fa6ca957a911b1"
+    },
+    {
+      "file": "ui_data.py",
+      "category": "python_source",
+      "sha256": "8bf2c1d824c91ce480651d19c07c17a081755d20807a4905c7a9fd88d1b62f85"
+    },
+    {
+      "file": "ui_graph.py",
+      "category": "python_source",
+      "sha256": "f14b0fa164bd5a3d3a06a9841a918c0d0489e2d7567add95e1dbbe6c0fc826c5"
+    },
+    {
+      "file": "validator.py",
+      "category": "python_source",
+      "sha256": "fdf47fa1f1f9805f7cc6369b791c65516b93890470784245f3d30e5801c8d4a1"
+    },
+    {
+      "file": "verify_independent_processes.py",
+      "category": "python_source",
+      "sha256": "8843f8165b7de427d3ac69519ee963e33183b14e15455ed19418d4e1c0ab768c"
+    },
+    {
+      "file": "verify_python_cpp.py",
+      "category": "python_source",
+      "sha256": "e628fcdd13deeb80ccf6edd47a29199d2d6f68ada0be1a8e88f70e6e5d807b79"
+    }
+  ],
+  "all_version_file_count": 86,
+  "source_data_tree_sha256": "f6f53135f134190f030677a5f032c326cf0fe69d7f3126d72a0dc2732426a822",
+  "tracked_extensions": [
+    ".py",
+    ".cpp",
+    ".csv",
+    ".md",
+    ".txt",
+    ".png",
+    ".pdf"
+  ],
+  "excluded_generated_paths": [
+    "outputs",
+    "__pycache__"
+  ],
+  "scenario_count": 5,
+  "passed": 5,
+  "result": "PASS"
+}

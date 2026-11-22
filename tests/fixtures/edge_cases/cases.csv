@@ -1,0 +1,8 @@
+﻿case_id,description,expected_max_flow,chapter_section
+EC01,Khong co duong SS den TT,0,6.5.1
+EC02,Mot canh truc tiep,7,6.5.2
+EC03_A,Capacity 0; khong co nhanh khac,0,Bo sung theo yeu cau; khac 6.5.3
+EC03_B,Capacity 0; co nhanh thay the,4,6.5.3
+EC04,Nhieu duong tang luong,5,6.5.4
+EC05,Dung canh du nguoc C -> A,2,6.5.5 va 6.4
+EC06,Nhieu nguon nhieu dich qua SS TT,7,6.5.6

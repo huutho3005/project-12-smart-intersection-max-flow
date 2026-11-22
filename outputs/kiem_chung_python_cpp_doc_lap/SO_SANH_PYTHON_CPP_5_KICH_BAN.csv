@@ -1,0 +1,6 @@
+﻿scenario_id,python_max_flow,cpp_max_flow,chenh_lech_python_tru_cpp,python_min_cut,cpp_min_cut,python_bfs_iterations,cpp_bfs_iterations,ket_qua
+SC01,6511,6511,0,6511,6511,12,12,PASS
+SC02,7145,7145,0,7145,7145,12,12,PASS
+SC03,6073,6073,0,6073,6073,12,12,PASS
+SC04,7708,7708,0,7708,7708,12,12,PASS
+SC05,7401,7401,0,7401,7401,13,13,PASS

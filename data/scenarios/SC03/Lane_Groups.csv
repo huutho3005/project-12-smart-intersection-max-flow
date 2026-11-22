@@ -1,0 +1,13 @@
+﻿lane_group_id,direction,movement_code,exit_direction,lane_count,saturation_flow,effective_green,cycle_time,alpha,capacity_base,capacity_peak,unit,capacity_basis,legacy_display_id,scenario_id,is_active,lane_function,assigned_movements,capacity_factor,capacity_effective,scenario_explanation
+LG_N_L,N,L,E,1,1900,27,90,0.85,485,388,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG01,SC03,1,L,MOV_N_L,0.8,388,Giảm 20% Capacity hiệu dụng; số làn vật lý/quy đổi không đổi
+LG_N_T,N,T,S,1,1900,45,90,0.9,855,684,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG02,SC03,1,T,MOV_N_T,0.8,684,Giảm 20% Capacity hiệu dụng; số làn vật lý/quy đổi không đổi
+LG_N_R,N,R,W,1,1900,45,90,0.9,855,684,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG03,SC03,1,R,MOV_N_R,0.8,684,Giảm 20% Capacity hiệu dụng; số làn vật lý/quy đổi không đổi
+LG_S_L,S,L,W,1,1900,27,90,0.85,485,388,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG04,SC03,1,L,MOV_S_L,0.8,388,Giảm 20% Capacity hiệu dụng; số làn vật lý/quy đổi không đổi
+LG_S_T,S,T,N,1,1900,45,90,0.9,855,684,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG05,SC03,1,T,MOV_S_T,0.8,684,Giảm 20% Capacity hiệu dụng; số làn vật lý/quy đổi không đổi
+LG_S_R,S,R,E,1,1900,45,90,0.9,855,684,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG06,SC03,1,R,MOV_S_R,0.8,684,Giảm 20% Capacity hiệu dụng; số làn vật lý/quy đổi không đổi
+LG_E_L,E,L,S,1,1900,27,90,0.85,485,388,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG07,SC03,1,L,MOV_E_L,0.8,388,Giảm 20% Capacity hiệu dụng; số làn vật lý/quy đổi không đổi
+LG_E_T,E,T,W,1,1900,45,90,0.9,855,684,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG08,SC03,1,T,MOV_E_T,0.8,684,Giảm 20% Capacity hiệu dụng; số làn vật lý/quy đổi không đổi
+LG_E_R,E,R,N,1,1900,45,90,0.9,855,684,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG09,SC03,1,R,MOV_E_R,0.8,684,Giảm 20% Capacity hiệu dụng; số làn vật lý/quy đổi không đổi
+LG_W_L,W,L,N,1,1900,27,90,0.85,485,388,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG10,SC03,1,L,MOV_W_L,0.8,388,Giảm 20% Capacity hiệu dụng; số làn vật lý/quy đổi không đổi
+LG_W_T,W,T,E,1,1900,45,90,0.9,855,684,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG11,SC03,1,T,MOV_W_T,0.8,684,Giảm 20% Capacity hiệu dụng; số làn vật lý/quy đổi không đổi
+LG_W_R,W,R,S,1,1900,45,90,0.9,855,684,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG12,SC03,1,R,MOV_W_R,0.8,684,Giảm 20% Capacity hiệu dụng; số làn vật lý/quy đổi không đổi

@@ -1,0 +1,13 @@
+﻿lane_group_id,direction,movement_code,exit_direction,lane_count,saturation_flow,effective_green,cycle_time,alpha,capacity_base,capacity_peak,unit,capacity_basis,legacy_display_id
+LG_N_L,N,L,E,1,1900,27,90,0.85,485,485,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG01
+LG_N_T,N,T,S,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG02
+LG_N_R,N,R,W,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG03
+LG_S_L,S,L,W,1,1900,27,90,0.85,485,485,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG04
+LG_S_T,S,T,N,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG05
+LG_S_R,S,R,E,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG06
+LG_E_L,E,L,S,1,1900,27,90,0.85,485,485,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG07
+LG_E_T,E,T,W,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG08
+LG_E_R,E,R,N,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG09
+LG_W_L,W,L,N,1,1900,27,90,0.85,485,485,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG10
+LG_W_T,W,T,E,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG11
+LG_W_R,W,R,S,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG12

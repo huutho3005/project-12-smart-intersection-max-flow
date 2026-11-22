@@ -1,0 +1,8 @@
+COMMAND: /tmp/smart_intersection_compare_jl8qms2z/ek_cpp_independent --all --data /mnt/data/_work_si/SMART_INTERSECTION_SOURCE_ON_DINH_DE_NOP/data
+RETURN_CODE: 0
+scenario_id,max_flow,min_cut,bfs_iterations
+SC01,6511,6511,12
+SC02,7145,7145,12
+SC03,6073,6073,12
+SC04,7708,7708,12
+SC05,7401,7401,13

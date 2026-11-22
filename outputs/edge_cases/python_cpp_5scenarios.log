@@ -1,0 +1,6 @@
+SC01: Python=6511, C++=6511, MinCut(Python/C++)=6511/6511: PASS
+SC02: Python=7145, C++=7145, MinCut(Python/C++)=7145/7145: PASS
+SC03: Python=6073, C++=6073, MinCut(Python/C++)=6073/6073: PASS
+SC04: Python=7708, C++=7708, MinCut(Python/C++)=7708/7708: PASS
+SC05: Python=7401, C++=7401, MinCut(Python/C++)=7401/7401: PASS
+PASS 5/5, log: /mnt/data/SMART_INTERSECTION_SOURCE_EDGE_CASES_DA_KIEM_CHUNG/outputs/python_cpp_comparison.csv

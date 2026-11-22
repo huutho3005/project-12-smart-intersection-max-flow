@@ -1,0 +1,45 @@
+﻿edge_id,from_node_id,to_node_id,capacity,unit,edge_type,capacity_basis,description,capacity_rule,scenario_id
+E001,SS,APP_N,2340,xe quy ước/giờ,SS_TO_APP,Tổng Demand theo hướng tiếp cận trong kịch bản,SS → APP_N,A_N,SC02
+E002,SS,APP_S,2226,xe quy ước/giờ,SS_TO_APP,Tổng Demand theo hướng tiếp cận trong kịch bản,SS → APP_S,A_S,SC02
+E003,SS,APP_E,2083,xe quy ước/giờ,SS_TO_APP,Tổng Demand theo hướng tiếp cận trong kịch bản,SS → APP_E,A_E,SC02
+E004,SS,APP_W,2283,xe quy ước/giờ,SS_TO_APP,Tổng Demand theo hướng tiếp cận trong kịch bản,SS → APP_W,A_W,SC02
+E005,APP_N,LG_N_L,585,xe quy ước/giờ,APP_TO_LG,Demand theo chuyển động; riêng SC05 E006/E007 điều chỉnh theo dùng chung làn,APP_N → LG_N_L,D_NL,SC02
+E006,APP_N,LG_N_T,1287,xe quy ước/giờ,APP_TO_LG,Demand theo chuyển động; riêng SC05 E006/E007 điều chỉnh theo dùng chung làn,APP_N → LG_N_T,D_NT,SC02
+E007,APP_N,LG_N_R,468,xe quy ước/giờ,APP_TO_LG,Demand theo chuyển động; riêng SC05 E006/E007 điều chỉnh theo dùng chung làn,APP_N → LG_N_R,D_NR,SC02
+E008,APP_S,LG_S_L,557,xe quy ước/giờ,APP_TO_LG,Demand theo chuyển động; riêng SC05 E006/E007 điều chỉnh theo dùng chung làn,APP_S → LG_S_L,D_SL,SC02
+E009,APP_S,LG_S_T,1224,xe quy ước/giờ,APP_TO_LG,Demand theo chuyển động; riêng SC05 E006/E007 điều chỉnh theo dùng chung làn,APP_S → LG_S_T,D_ST,SC02
+E010,APP_S,LG_S_R,445,xe quy ước/giờ,APP_TO_LG,Demand theo chuyển động; riêng SC05 E006/E007 điều chỉnh theo dùng chung làn,APP_S → LG_S_R,D_SR,SC02
+E011,APP_E,LG_E_L,521,xe quy ước/giờ,APP_TO_LG,Demand theo chuyển động; riêng SC05 E006/E007 điều chỉnh theo dùng chung làn,APP_E → LG_E_L,D_EL,SC02
+E012,APP_E,LG_E_T,1146,xe quy ước/giờ,APP_TO_LG,Demand theo chuyển động; riêng SC05 E006/E007 điều chỉnh theo dùng chung làn,APP_E → LG_E_T,D_ET,SC02
+E013,APP_E,LG_E_R,416,xe quy ước/giờ,APP_TO_LG,Demand theo chuyển động; riêng SC05 E006/E007 điều chỉnh theo dùng chung làn,APP_E → LG_E_R,D_ER,SC02
+E014,APP_W,LG_W_L,571,xe quy ước/giờ,APP_TO_LG,Demand theo chuyển động; riêng SC05 E006/E007 điều chỉnh theo dùng chung làn,APP_W → LG_W_L,D_WL,SC02
+E015,APP_W,LG_W_T,1256,xe quy ước/giờ,APP_TO_LG,Demand theo chuyển động; riêng SC05 E006/E007 điều chỉnh theo dùng chung làn,APP_W → LG_W_T,D_WT,SC02
+E016,APP_W,LG_W_R,456,xe quy ước/giờ,APP_TO_LG,Demand theo chuyển động; riêng SC05 E006/E007 điều chỉnh theo dùng chung làn,APP_W → LG_W_R,D_WR,SC02
+E017,LG_N_L,MOV_N_L,485,xe quy ước/giờ,LG_TO_MOV,Capacity nhóm làn; điều chỉnh theo kịch bản,LG_N_L → MOV_N_L,C_NL,SC02
+E018,LG_N_T,MOV_N_T,855,xe quy ước/giờ,LG_TO_MOV,Capacity nhóm làn; điều chỉnh theo kịch bản,LG_N_T → MOV_N_T,C_NT,SC02
+E019,LG_N_R,MOV_N_R,855,xe quy ước/giờ,LG_TO_MOV,Capacity nhóm làn; điều chỉnh theo kịch bản,LG_N_R → MOV_N_R,C_NR,SC02
+E020,LG_S_L,MOV_S_L,485,xe quy ước/giờ,LG_TO_MOV,Capacity nhóm làn; điều chỉnh theo kịch bản,LG_S_L → MOV_S_L,C_SL,SC02
+E021,LG_S_T,MOV_S_T,855,xe quy ước/giờ,LG_TO_MOV,Capacity nhóm làn; điều chỉnh theo kịch bản,LG_S_T → MOV_S_T,C_ST,SC02
+E022,LG_S_R,MOV_S_R,855,xe quy ước/giờ,LG_TO_MOV,Capacity nhóm làn; điều chỉnh theo kịch bản,LG_S_R → MOV_S_R,C_SR,SC02
+E023,LG_E_L,MOV_E_L,485,xe quy ước/giờ,LG_TO_MOV,Capacity nhóm làn; điều chỉnh theo kịch bản,LG_E_L → MOV_E_L,C_EL,SC02
+E024,LG_E_T,MOV_E_T,855,xe quy ước/giờ,LG_TO_MOV,Capacity nhóm làn; điều chỉnh theo kịch bản,LG_E_T → MOV_E_T,C_ET,SC02
+E025,LG_E_R,MOV_E_R,855,xe quy ước/giờ,LG_TO_MOV,Capacity nhóm làn; điều chỉnh theo kịch bản,LG_E_R → MOV_E_R,C_ER,SC02
+E026,LG_W_L,MOV_W_L,485,xe quy ước/giờ,LG_TO_MOV,Capacity nhóm làn; điều chỉnh theo kịch bản,LG_W_L → MOV_W_L,C_WL,SC02
+E027,LG_W_T,MOV_W_T,855,xe quy ước/giờ,LG_TO_MOV,Capacity nhóm làn; điều chỉnh theo kịch bản,LG_W_T → MOV_W_T,C_WT,SC02
+E028,LG_W_R,MOV_W_R,855,xe quy ước/giờ,LG_TO_MOV,Capacity nhóm làn; điều chỉnh theo kịch bản,LG_W_R → MOV_W_R,C_WR,SC02
+E029,MOV_N_L,EXIT_E,8932,xe quy ước/giờ,MOV_TO_EXIT,M = tổng Demand cả mạng trong kịch bản; cạnh logic không tạo nghẽn,MOV_N_L → EXIT_E,M,SC02
+E030,MOV_N_T,EXIT_S,8932,xe quy ước/giờ,MOV_TO_EXIT,M = tổng Demand cả mạng trong kịch bản; cạnh logic không tạo nghẽn,MOV_N_T → EXIT_S,M,SC02
+E031,MOV_N_R,EXIT_W,8932,xe quy ước/giờ,MOV_TO_EXIT,M = tổng Demand cả mạng trong kịch bản; cạnh logic không tạo nghẽn,MOV_N_R → EXIT_W,M,SC02
+E032,MOV_S_L,EXIT_W,8932,xe quy ước/giờ,MOV_TO_EXIT,M = tổng Demand cả mạng trong kịch bản; cạnh logic không tạo nghẽn,MOV_S_L → EXIT_W,M,SC02
+E033,MOV_S_T,EXIT_N,8932,xe quy ước/giờ,MOV_TO_EXIT,M = tổng Demand cả mạng trong kịch bản; cạnh logic không tạo nghẽn,MOV_S_T → EXIT_N,M,SC02
+E034,MOV_S_R,EXIT_E,8932,xe quy ước/giờ,MOV_TO_EXIT,M = tổng Demand cả mạng trong kịch bản; cạnh logic không tạo nghẽn,MOV_S_R → EXIT_E,M,SC02
+E035,MOV_E_L,EXIT_S,8932,xe quy ước/giờ,MOV_TO_EXIT,M = tổng Demand cả mạng trong kịch bản; cạnh logic không tạo nghẽn,MOV_E_L → EXIT_S,M,SC02
+E036,MOV_E_T,EXIT_W,8932,xe quy ước/giờ,MOV_TO_EXIT,M = tổng Demand cả mạng trong kịch bản; cạnh logic không tạo nghẽn,MOV_E_T → EXIT_W,M,SC02
+E037,MOV_E_R,EXIT_N,8932,xe quy ước/giờ,MOV_TO_EXIT,M = tổng Demand cả mạng trong kịch bản; cạnh logic không tạo nghẽn,MOV_E_R → EXIT_N,M,SC02
+E038,MOV_W_L,EXIT_N,8932,xe quy ước/giờ,MOV_TO_EXIT,M = tổng Demand cả mạng trong kịch bản; cạnh logic không tạo nghẽn,MOV_W_L → EXIT_N,M,SC02
+E039,MOV_W_T,EXIT_E,8932,xe quy ước/giờ,MOV_TO_EXIT,M = tổng Demand cả mạng trong kịch bản; cạnh logic không tạo nghẽn,MOV_W_T → EXIT_E,M,SC02
+E040,MOV_W_R,EXIT_S,8932,xe quy ước/giờ,MOV_TO_EXIT,M = tổng Demand cả mạng trong kịch bản; cạnh logic không tạo nghẽn,MOV_W_R → EXIT_S,M,SC02
+E041,EXIT_N,TT,2052,xe quy ước/giờ,EXIT_TO_TT,"Capacity hướng thoát Q=2052 xe quy ước/giờ, theo giả định Chương 3",EXIT_N → TT,Q_N,SC02
+E042,EXIT_S,TT,2052,xe quy ước/giờ,EXIT_TO_TT,"Capacity hướng thoát Q=2052 xe quy ước/giờ, theo giả định Chương 3",EXIT_S → TT,Q_S,SC02
+E043,EXIT_E,TT,2052,xe quy ước/giờ,EXIT_TO_TT,"Capacity hướng thoát Q=2052 xe quy ước/giờ, theo giả định Chương 3",EXIT_E → TT,Q_E,SC02
+E044,EXIT_W,TT,2052,xe quy ước/giờ,EXIT_TO_TT,"Capacity hướng thoát Q=2052 xe quy ước/giờ, theo giả định Chương 3",EXIT_W → TT,Q_W,SC02

@@ -1,0 +1,8 @@
+EC01: BFS=0 DFS=0 MinCut=0 BFS_vong=0 PASS
+EC02: BFS=7 DFS=7 MinCut=7 BFS_vong=1 PASS
+EC03_A: BFS=0 DFS=0 MinCut=0 BFS_vong=0 PASS
+EC03_B: BFS=4 DFS=4 MinCut=4 BFS_vong=1 PASS
+EC04: BFS=5 DFS=5 MinCut=5 BFS_vong=2 PASS
+EC05: BFS=2 DFS=2 MinCut=2 BFS_vong=2 PASS
+EC06: BFS=7 DFS=7 MinCut=7 BFS_vong=3 PASS
+PASS: 7 / 7 Edge Cases

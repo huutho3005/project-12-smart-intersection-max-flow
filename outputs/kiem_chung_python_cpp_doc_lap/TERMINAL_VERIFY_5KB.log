@@ -1,0 +1,7 @@
+Scenario | Python | C++ | Chênh lệch | Python Min-Cut | C++ Min-Cut | PASS/FAIL
+SC01     |   6511 |  6511 |          0 |           6511 |        6511 | PASS
+SC02     |   7145 |  7145 |          0 |           7145 |        7145 | PASS
+SC03     |   6073 |  6073 |          0 |           6073 |        6073 | PASS
+SC04     |   7708 |  7708 |          0 |           7708 |        7708 | PASS
+SC05     |   7401 |  7401 |          0 |           7401 |        7401 | PASS
+Output: /mnt/data/ctrr_fix3_work/SMART_INTERSECTION_SOURCE_EDGE_CASES_DA_KIEM_CHUNG/outputs/kiem_chung_python_cpp_doc_lap

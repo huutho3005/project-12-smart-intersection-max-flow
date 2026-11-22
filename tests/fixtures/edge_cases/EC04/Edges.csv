@@ -1,0 +1,5 @@
+﻿edge_id,from_node_id,to_node_id,capacity
+E001,SS,A,3
+E002,A,TT,3
+E003,SS,B,2
+E004,B,TT,2

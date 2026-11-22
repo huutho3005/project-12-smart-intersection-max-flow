@@ -1,0 +1,13 @@
+﻿lane_group_id,direction,movement_code,exit_direction,lane_count,saturation_flow,effective_green,cycle_time,alpha,capacity_base,capacity_peak,unit,capacity_basis,legacy_display_id,scenario_id,is_active,lane_function,assigned_movements,capacity_factor,capacity_effective,scenario_explanation
+LG_N_L,N,L,E,1,1900,27,90,0.85,485,485,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG01,SC02,1,L,MOV_N_L,1.0,485,Giữ nguyên metadata cơ sở
+LG_N_T,N,T,S,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG02,SC02,1,T,MOV_N_T,1.0,855,Giữ nguyên metadata cơ sở
+LG_N_R,N,R,W,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG03,SC02,1,R,MOV_N_R,1.0,855,Giữ nguyên metadata cơ sở
+LG_S_L,S,L,W,1,1900,27,90,0.85,485,485,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG04,SC02,1,L,MOV_S_L,1.0,485,Giữ nguyên metadata cơ sở
+LG_S_T,S,T,N,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG05,SC02,1,T,MOV_S_T,1.0,855,Giữ nguyên metadata cơ sở
+LG_S_R,S,R,E,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG06,SC02,1,R,MOV_S_R,1.0,855,Giữ nguyên metadata cơ sở
+LG_E_L,E,L,S,1,1900,27,90,0.85,485,485,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG07,SC02,1,L,MOV_E_L,1.0,485,Giữ nguyên metadata cơ sở
+LG_E_T,E,T,W,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG08,SC02,1,T,MOV_E_T,1.0,855,Giữ nguyên metadata cơ sở
+LG_E_R,E,R,N,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG09,SC02,1,R,MOV_E_R,1.0,855,Giữ nguyên metadata cơ sở
+LG_W_L,W,L,N,1,1900,27,90,0.85,485,485,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG10,SC02,1,L,MOV_W_L,1.0,485,Giữ nguyên metadata cơ sở
+LG_W_T,W,T,E,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG11,SC02,1,T,MOV_W_T,1.0,855,Giữ nguyên metadata cơ sở
+LG_W_R,W,R,S,1,1900,45,90,0.9,855,855,xe quy ước/giờ,Ch.3: n × s0 × (g/T) × α; làm tròn; tham số giả định,LG12,SC02,1,R,MOV_W_R,1.0,855,Giữ nguyên metadata cơ sở

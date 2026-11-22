@@ -1,0 +1,6 @@
+﻿scenario_id,scenario_name,demand,max_flow_bfs,max_flow_dfs,min_cut_bfs,min_cut_dfs,bfs_augmentations,dfs_augmentations,cut_edge_ids,cut_demand_capacity,cut_lane_capacity,cut_exit_capacity,cut_s_size,cut_t_size,test_result
+SC01,Baseline,6870,6511,6511,6511,6511,12,12,E005; E007; E008; E010; E011; E013; E014; E016; E018; E021; E024; E027,3091,3420,0,9,25,PASS
+SC02,Peak Hour,8932,7145,7145,7145,7145,12,12,E007; E010; E013; E016; E017; E018; E020; E021; E023; E024; E026; E027,1785,5360,0,13,21,PASS
+SC03,Capacity Reduction,8932,6073,6073,6073,6073,12,12,E007; E010; E013; E016; E017; E018; E020; E021; E023; E024; E026; E027,1785,4288,0,13,21,PASS
+SC04,Equivalent Two-Lane Capacity,8932,7708,7708,7708,7708,12,12,E007; E016; E018; E020; E023; E024; E041; E043,924,2680,4104,23,11,PASS
+SC05,Lane Reassignment,8932,7401,7401,7401,7401,13,15,E007; E010; E013; E017; E019; E020; E021; E024; E026; E027; E042,861,4488,2052,18,16,PASS

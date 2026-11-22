@@ -1,0 +1,13 @@
+﻿movement_id,origin_direction,movement_code,exit_direction,lane_group_id,split_ratio,demand_base,demand_peak,unit,demand_basis,description,legacy_display_id
+MOV_N_L,N,L,E,LG_N_L,0.25,450,585,xe quy ước/giờ,Ch.3: bảng Demand theo 12 movement; peak giữ đúng số làm tròn của bản nháp,Bắc rẽ trái sang Đông,M01
+MOV_N_T,N,T,S,LG_N_T,0.55,990,1287,xe quy ước/giờ,Ch.3: bảng Demand theo 12 movement; peak giữ đúng số làm tròn của bản nháp,Bắc đi thẳng sang Nam,M02
+MOV_N_R,N,R,W,LG_N_R,0.2,360,468,xe quy ước/giờ,Ch.3: bảng Demand theo 12 movement; peak giữ đúng số làm tròn của bản nháp,Bắc rẽ phải sang Tây,M03
+MOV_S_L,S,L,W,LG_S_L,0.25,428,557,xe quy ước/giờ,Ch.3: bảng Demand theo 12 movement; peak giữ đúng số làm tròn của bản nháp,Nam rẽ trái sang Tây,M04
+MOV_S_T,S,T,N,LG_S_T,0.550234,942,1224,xe quy ước/giờ,Ch.3: bảng Demand theo 12 movement; peak giữ đúng số làm tròn của bản nháp,Nam đi thẳng sang Bắc,M05
+MOV_S_R,S,R,E,LG_S_R,0.199766,342,445,xe quy ước/giờ,Ch.3: bảng Demand theo 12 movement; peak giữ đúng số làm tròn của bản nháp,Nam rẽ phải sang Đông,M06
+MOV_E_L,E,L,S,LG_E_L,0.250312,401,521,xe quy ước/giờ,Ch.3: bảng Demand theo 12 movement; peak giữ đúng số làm tròn của bản nháp,Đông rẽ trái sang Nam,M07
+MOV_E_T,E,T,W,LG_E_T,0.549938,881,1146,xe quy ước/giờ,Ch.3: bảng Demand theo 12 movement; peak giữ đúng số làm tròn của bản nháp,Đông đi thẳng sang Tây,M08
+MOV_E_R,E,R,N,LG_E_R,0.19975,320,416,xe quy ước/giờ,Ch.3: bảng Demand theo 12 movement; peak giữ đúng số làm tròn của bản nháp,Đông rẽ phải sang Bắc,M09
+MOV_W_L,W,L,N,LG_W_L,0.25,439,571,xe quy ước/giờ,Ch.3: bảng Demand theo 12 movement; peak giữ đúng số làm tròn của bản nháp,Tây rẽ trái sang Bắc,M10
+MOV_W_T,W,T,E,LG_W_T,0.550114,966,1256,xe quy ước/giờ,Ch.3: bảng Demand theo 12 movement; peak giữ đúng số làm tròn của bản nháp,Tây đi thẳng sang Đông,M11
+MOV_W_R,W,R,S,LG_W_R,0.199886,351,456,xe quy ước/giờ,Ch.3: bảng Demand theo 12 movement; peak giữ đúng số làm tròn của bản nháp,Tây rẽ phải sang Nam,M12

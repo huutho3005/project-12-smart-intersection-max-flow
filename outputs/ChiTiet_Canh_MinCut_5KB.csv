@@ -1,0 +1,56 @@
+﻿scenario_id,edge_id,from_node,to_node,edge_category,capacity,flow,explanation
+SC01,E005,APP_N,LG_N_L,DEMAND,450,450,Nhu cầu nhánh N_L giới hạn luồng; không suy ra ùn tắc vật lý
+SC01,E007,APP_N,LG_N_R,DEMAND,360,360,Nhu cầu nhánh N_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC01,E008,APP_S,LG_S_L,DEMAND,428,428,Nhu cầu nhánh S_L giới hạn luồng; không suy ra ùn tắc vật lý
+SC01,E010,APP_S,LG_S_R,DEMAND,342,342,Nhu cầu nhánh S_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC01,E011,APP_E,LG_E_L,DEMAND,401,401,Nhu cầu nhánh E_L giới hạn luồng; không suy ra ùn tắc vật lý
+SC01,E013,APP_E,LG_E_R,DEMAND,320,320,Nhu cầu nhánh E_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC01,E014,APP_W,LG_W_L,DEMAND,439,439,Nhu cầu nhánh W_L giới hạn luồng; không suy ra ùn tắc vật lý
+SC01,E016,APP_W,LG_W_R,DEMAND,351,351,Nhu cầu nhánh W_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC01,E018,LG_N_T,MOV_N_T,LANE,855,855,Năng lực nhóm làn N_T giới hạn luồng
+SC01,E021,LG_S_T,MOV_S_T,LANE,855,855,Năng lực nhóm làn S_T giới hạn luồng
+SC01,E024,LG_E_T,MOV_E_T,LANE,855,855,Năng lực nhóm làn E_T giới hạn luồng
+SC01,E027,LG_W_T,MOV_W_T,LANE,855,855,Năng lực nhóm làn W_T giới hạn luồng
+SC02,E007,APP_N,LG_N_R,DEMAND,468,468,Nhu cầu nhánh N_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC02,E010,APP_S,LG_S_R,DEMAND,445,445,Nhu cầu nhánh S_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC02,E013,APP_E,LG_E_R,DEMAND,416,416,Nhu cầu nhánh E_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC02,E016,APP_W,LG_W_R,DEMAND,456,456,Nhu cầu nhánh W_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC02,E017,LG_N_L,MOV_N_L,LANE,485,485,Năng lực nhóm làn N_L giới hạn luồng
+SC02,E018,LG_N_T,MOV_N_T,LANE,855,855,Năng lực nhóm làn N_T giới hạn luồng
+SC02,E020,LG_S_L,MOV_S_L,LANE,485,485,Năng lực nhóm làn S_L giới hạn luồng
+SC02,E021,LG_S_T,MOV_S_T,LANE,855,855,Năng lực nhóm làn S_T giới hạn luồng
+SC02,E023,LG_E_L,MOV_E_L,LANE,485,485,Năng lực nhóm làn E_L giới hạn luồng
+SC02,E024,LG_E_T,MOV_E_T,LANE,855,855,Năng lực nhóm làn E_T giới hạn luồng
+SC02,E026,LG_W_L,MOV_W_L,LANE,485,485,Năng lực nhóm làn W_L giới hạn luồng
+SC02,E027,LG_W_T,MOV_W_T,LANE,855,855,Năng lực nhóm làn W_T giới hạn luồng
+SC03,E007,APP_N,LG_N_R,DEMAND,468,468,Nhu cầu nhánh N_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC03,E010,APP_S,LG_S_R,DEMAND,445,445,Nhu cầu nhánh S_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC03,E013,APP_E,LG_E_R,DEMAND,416,416,Nhu cầu nhánh E_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC03,E016,APP_W,LG_W_R,DEMAND,456,456,Nhu cầu nhánh W_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC03,E017,LG_N_L,MOV_N_L,LANE,388,388,Năng lực nhóm làn N_L giới hạn luồng
+SC03,E018,LG_N_T,MOV_N_T,LANE,684,684,Năng lực nhóm làn N_T giới hạn luồng
+SC03,E020,LG_S_L,MOV_S_L,LANE,388,388,Năng lực nhóm làn S_L giới hạn luồng
+SC03,E021,LG_S_T,MOV_S_T,LANE,684,684,Năng lực nhóm làn S_T giới hạn luồng
+SC03,E023,LG_E_L,MOV_E_L,LANE,388,388,Năng lực nhóm làn E_L giới hạn luồng
+SC03,E024,LG_E_T,MOV_E_T,LANE,684,684,Năng lực nhóm làn E_T giới hạn luồng
+SC03,E026,LG_W_L,MOV_W_L,LANE,388,388,Năng lực nhóm làn W_L giới hạn luồng
+SC03,E027,LG_W_T,MOV_W_T,LANE,684,684,Năng lực nhóm làn W_T giới hạn luồng
+SC04,E007,APP_N,LG_N_R,DEMAND,468,468,Nhu cầu nhánh N_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC04,E016,APP_W,LG_W_R,DEMAND,456,456,Nhu cầu nhánh W_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC04,E018,LG_N_T,MOV_N_T,LANE,855,855,Năng lực nhóm làn N_T giới hạn luồng
+SC04,E020,LG_S_L,MOV_S_L,LANE,485,485,Năng lực nhóm làn S_L giới hạn luồng
+SC04,E023,LG_E_L,MOV_E_L,LANE,485,485,Năng lực nhóm làn E_L giới hạn luồng
+SC04,E024,LG_E_T,MOV_E_T,LANE,855,855,Năng lực nhóm làn E_T giới hạn luồng
+SC04,E041,EXIT_N,TT,EXIT,2052,2052,Lối ra N đạt giới hạn tiếp nhận
+SC04,E043,EXIT_E,TT,EXIT,2052,2052,Lối ra E đạt giới hạn tiếp nhận
+SC05,E007,APP_N,LG_N_R,DEMAND,0,0,Cạnh vô hiệu hóa chủ đích (không diễn giải là điểm nghẽn vật lý)
+SC05,E010,APP_S,LG_S_R,DEMAND,445,445,Nhu cầu nhánh S_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC05,E013,APP_E,LG_E_R,DEMAND,416,416,Nhu cầu nhánh E_R giới hạn luồng; không suy ra ùn tắc vật lý
+SC05,E017,LG_N_L,MOV_N_L,LANE,485,485,Năng lực nhóm làn N_L giới hạn luồng
+SC05,E019,LG_N_T,MOV_N_R,LANE,468,468,Năng lực nhóm làn N_T giới hạn luồng
+SC05,E020,LG_S_L,MOV_S_L,LANE,485,485,Năng lực nhóm làn S_L giới hạn luồng
+SC05,E021,LG_S_T,MOV_S_T,LANE,855,855,Năng lực nhóm làn S_T giới hạn luồng
+SC05,E024,LG_E_T,MOV_E_T,LANE,855,855,Năng lực nhóm làn E_T giới hạn luồng
+SC05,E026,LG_W_L,MOV_W_L,LANE,485,485,Năng lực nhóm làn W_L giới hạn luồng
+SC05,E027,LG_W_T,MOV_W_T,LANE,855,855,Năng lực nhóm làn W_T giới hạn luồng
+SC05,E042,EXIT_S,TT,EXIT,2052,2052,Lối ra S đạt giới hạn tiếp nhận

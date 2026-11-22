@@ -1,0 +1,38 @@
+# Python caches and test artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Virtual environments and local configuration
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Compiled objects and binaries
+*.o
+*.obj
+*.exe
+*.out
+*.so
+*.dylib
+*.dll
+build/
+dist/
+
+# System/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Keep outputs/ intentionally: it contains reference results and SHA-256 manifest

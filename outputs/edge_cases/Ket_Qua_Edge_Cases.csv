@@ -1,0 +1,8 @@
+﻿case_id,chapter_section,description,vertices,original_edges,expected,max_flow_bfs,max_flow_dfs,minimum_cut,bfs_augmentations,dfs_augmentations,reverse_used_by_bfs,cut_edges,set_S,set_T,result
+EC01,6.5.1,Khong co duong SS den TT,4,2,0,0,0,0,0,0,0,,A;SS,B;TT,PASS
+EC02,6.5.2,Mot canh truc tiep,2,1,7,7,7,7,1,1,0,E001,SS,TT,PASS
+EC03_A,Bo sung theo yeu cau; khac 6.5.3,Capacity 0; khong co nhanh khac,3,2,0,0,0,0,0,0,0,E001,SS,A;TT,PASS
+EC03_B,6.5.3,Capacity 0; co nhanh thay the,4,4,4,4,4,4,1,1,0,E001;E003,SS,A;B;TT,PASS
+EC04,6.5.4,Nhieu duong tang luong,4,4,5,5,5,5,2,2,0,E001;E003,SS,A;B;TT,PASS
+EC05,6.5.5 va 6.4,Dung canh du nguoc C -> A,6,7,2,2,2,2,2,2,1,E001;E002,SS,A;B;C;D;TT,PASS
+EC06,6.5.6,Nhieu nguon nhieu dich qua SS TT,7,8,7,7,7,7,3,3,0,E001;E002,SS,S1;S2;T1;T2;TT;X,PASS

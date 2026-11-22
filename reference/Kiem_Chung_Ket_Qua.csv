@@ -1,0 +1,6 @@
+﻿scenario_id,scenario_name,total_demand,max_flow,unserved_demand,satisfaction_rate,min_cut_capacity,augmentations,validation
+SC01,Baseline,6870,6511,359,94.7744,6511,12,PASS
+SC02,Peak Hour,8932,7145,1787,79.9933,7145,12,PASS
+SC03,Capacity Reduction,8932,6073,2859,67.9915,6073,12,PASS
+SC04,Equivalent Two-Lane Capacity,8932,7708,1224,86.2965,7708,12,PASS
+SC05,Lane Reassignment,8932,7401,1531,82.8594,7401,13,PASS

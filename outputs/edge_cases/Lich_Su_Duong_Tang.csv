@@ -1,0 +1,10 @@
+﻿case_id,iteration,augmenting_path,bottleneck,cumulative_flow,reverse_original_edge_ids,selected_residual_arcs
+EC02,1,SS -> TT,7,7,,E001:forward:SS->TT@0
+EC03_B,1,SS -> B -> TT,4,4,,E003:forward:SS->B@1; E004:forward:B->TT@1
+EC04,1,SS -> A -> TT,3,3,,E001:forward:SS->A@0; E002:forward:A->TT@1
+EC04,2,SS -> B -> TT,2,5,,E003:forward:SS->B@1; E004:forward:B->TT@1
+EC05,1,SS -> A -> C -> TT,1,1,,E001:forward:SS->A@0; E003:forward:A->C@1; E006:forward:C->TT@2
+EC05,2,SS -> B -> C -> A -> D -> TT,1,2,E003,E002:forward:SS->B@1; E005:forward:B->C@1; E003:reverse:C->A@0; E004:forward:A->D@2; E007:forward:D->TT@1
+EC06,1,SS -> S1 -> X -> T1 -> TT,4,4,,E001:forward:SS->S1@0; E003:forward:S1->X@1; E005:forward:X->T1@2; E007:forward:T1->TT@1
+EC06,2,SS -> S2 -> X -> T1 -> TT,1,5,,E002:forward:SS->S2@1; E004:forward:S2->X@1; E005:forward:X->T1@2; E007:forward:T1->TT@1
+EC06,3,SS -> S2 -> X -> T2 -> TT,2,7,,E002:forward:SS->S2@1; E004:forward:S2->X@1; E006:forward:X->T2@3; E008:forward:T2->TT@1

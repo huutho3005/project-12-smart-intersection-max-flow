@@ -1,0 +1,4 @@
+PASS: Cả hai thuật toán tính lại từ CSV sửa trong bản sao tạm
+  SC02: Python gốc=7145, Python sửa=6360, C++ sửa=6360
+PASS: Cố ý dùng hai phiên bản CSV khác nhau thì so sánh phát hiện FAIL
+PASS: SHA-256 CSV gốc không đổi

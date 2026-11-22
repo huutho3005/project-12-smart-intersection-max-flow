@@ -1,0 +1,6 @@
+﻿scenario_id,max_flow,min_cut,bfs_iterations
+SC01,6511,6511,12
+SC02,7145,7145,12
+SC03,6073,6073,12
+SC04,7708,7708,12
+SC05,7401,7401,13

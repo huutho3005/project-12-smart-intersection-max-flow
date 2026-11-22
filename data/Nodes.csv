@@ -1,0 +1,35 @@
+﻿stt,node_id,node_type,direction,movement,description,legacy_display_id
+1,SS,SOURCE,,,Nguồn ảo (Super Source),N01
+2,TT,SINK,,,Đích ảo (Super Sink),N34
+3,APP_N,APPROACH,N,,Điểm vào từ hướng Bắc,N02
+4,APP_S,APPROACH,S,,Điểm vào từ hướng Nam,N03
+5,APP_E,APPROACH,E,,Điểm vào từ hướng Đông,N04
+6,APP_W,APPROACH,W,,Điểm vào từ hướng Tây,N05
+7,LG_N_L,LANE_GROUP,N,L,Nhóm làn Bắc – rẽ trái,N06
+8,LG_N_T,LANE_GROUP,N,T,Nhóm làn Bắc – đi thẳng,N07
+9,LG_N_R,LANE_GROUP,N,R,Nhóm làn Bắc – rẽ phải,N08
+10,LG_S_L,LANE_GROUP,S,L,Nhóm làn Nam – rẽ trái,N09
+11,LG_S_T,LANE_GROUP,S,T,Nhóm làn Nam – đi thẳng,N10
+12,LG_S_R,LANE_GROUP,S,R,Nhóm làn Nam – rẽ phải,N11
+13,LG_E_L,LANE_GROUP,E,L,Nhóm làn Đông – rẽ trái,N12
+14,LG_E_T,LANE_GROUP,E,T,Nhóm làn Đông – đi thẳng,N13
+15,LG_E_R,LANE_GROUP,E,R,Nhóm làn Đông – rẽ phải,N14
+16,LG_W_L,LANE_GROUP,W,L,Nhóm làn Tây – rẽ trái,N15
+17,LG_W_T,LANE_GROUP,W,T,Nhóm làn Tây – đi thẳng,N16
+18,LG_W_R,LANE_GROUP,W,R,Nhóm làn Tây – rẽ phải,N17
+19,MOV_N_L,MOVEMENT,N,L,Chuyển động Bắc → Đông (Rẽ trái),N18
+20,MOV_N_T,MOVEMENT,N,T,Chuyển động Bắc → Nam (Đi thẳng),N19
+21,MOV_N_R,MOVEMENT,N,R,Chuyển động Bắc → Tây (Rẽ phải),N20
+22,MOV_S_L,MOVEMENT,S,L,Chuyển động Nam → Tây (Rẽ trái),N21
+23,MOV_S_T,MOVEMENT,S,T,Chuyển động Nam → Bắc (Đi thẳng),N22
+24,MOV_S_R,MOVEMENT,S,R,Chuyển động Nam → Đông (Rẽ phải),N23
+25,MOV_E_L,MOVEMENT,E,L,Chuyển động Đông → Nam (Rẽ trái),N24
+26,MOV_E_T,MOVEMENT,E,T,Chuyển động Đông → Tây (Đi thẳng),N25
+27,MOV_E_R,MOVEMENT,E,R,Chuyển động Đông → Bắc (Rẽ phải),N26
+28,MOV_W_L,MOVEMENT,W,L,Chuyển động Tây → Bắc (Rẽ trái),N27
+29,MOV_W_T,MOVEMENT,W,T,Chuyển động Tây → Đông (Đi thẳng),N28
+30,MOV_W_R,MOVEMENT,W,R,Chuyển động Tây → Nam (Rẽ phải),N29
+31,EXIT_N,EXIT,N,,Lối ra phía Bắc,N30
+32,EXIT_S,EXIT,S,,Lối ra phía Nam,N31
+33,EXIT_E,EXIT,E,,Lối ra phía Đông,N32
+34,EXIT_W,EXIT,W,,Lối ra phía Tây,N33
