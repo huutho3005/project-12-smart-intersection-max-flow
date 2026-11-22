@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-11-22T01:20:25.515056+00:00",
-  "python_executable": "/opt/pyvenv/bin/python",
-  "python_version": "3.13.5",
+  "timestamp_utc": "2026-11-22T02:44:02.156095+00:00",
+  "python_executable": "/home/nguyenhuutho/taivechorme/SMART_INTERSECTION_GITHUB_READY/SMART_INTERSECTION_SOURCE_ON_DINH_DE_NOP/.venv/bin/python",
+  "python_version": "3.14.7",
   "cpp_compiler": "/usr/bin/g++",
   "source_python_sha256": "5ef7ce3df1ebc7c9ff76f9833383fcc189501fee558b45759fc72623b09892b7",
   "source_cpp_sha256": "560f3abd3277b729b0850ba6a0927f65366daa35c05ad7312b5fcb862a704b6b",
