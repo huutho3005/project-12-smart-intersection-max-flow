@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-11-22T02:44:02.156095+00:00",
+  "timestamp_utc": "2026-11-22T02:47:12.895565+00:00",
   "python_executable": "/home/nguyenhuutho/taivechorme/SMART_INTERSECTION_GITHUB_READY/SMART_INTERSECTION_SOURCE_ON_DINH_DE_NOP/.venv/bin/python",
   "python_version": "3.14.7",
   "cpp_compiler": "/usr/bin/g++",
@@ -38,26 +38,6 @@
       "sha256": "ee046cb96ff3136aaa46e12735e01ed8eedf86045b856dad0bcc738340cd05b2"
     },
     {
-      "file": "BAO_CAO_SUA_3_DIEM.md",
-      "category": "documentation",
-      "sha256": "3d978edd46a5cfe1db73e0b9c9562124e571e731825273f5623d84d360d41176"
-    },
-    {
-      "file": "DONG_BO_CHUONG_4.md",
-      "category": "documentation",
-      "sha256": "42d44fd376a21de34a1c5dc73f73ea13b153ef8b0ff7d787c308bb72066e0561"
-    },
-    {
-      "file": "GHI_CHU_SUA_E007_VA_TAP_ST.md",
-      "category": "documentation",
-      "sha256": "bb489f70276c007e9348b7e4308972c295564f0569f79488e28c605cb1ca1d0a"
-    },
-    {
-      "file": "GHI_CHU_SUA_LOI_MINCUT.md",
-      "category": "documentation",
-      "sha256": "b1dd8420f0a115596034a8348e455d39ffa57de39b8c0d61ab0636ba15f17de8"
-    },
-    {
       "file": "HUONG_DAN_EDGE_CASES_CHUONG_6.md",
       "category": "documentation",
       "sha256": "6692a04ff9b20fc5a3fd43a5482df692406391229a097ba0420052735d5750f9"
@@ -73,19 +53,9 @@
       "sha256": "6740c48f90a2f65f15b0e29b87a6390fa8bee942a159610de5eeed784eee809f"
     },
     {
-      "file": "KIEM_TRA_TRUOC_KHI_NOP.md",
-      "category": "documentation",
-      "sha256": "b9b19575f01f9d91077014b4d6244bca715954f4f8adcff305ae86235b3461b9"
-    },
-    {
-      "file": "LOG_KIEM_CHUNG.txt",
-      "category": "documentation",
-      "sha256": "f3027044a359fad0e0a333e30ac07240b8e2aa53f9450df82073b03f91ec4934"
-    },
-    {
       "file": "README.md",
       "category": "documentation",
-      "sha256": "cbd7d4734be30580c8bb4cb86919312ffceb7df8bd9a84a6bddbfa11fed1b709"
+      "sha256": "809692630e00928db1e22126818a643859eb01086a257a8bb6d83ef7af83c44e"
     },
     {
       "file": "VIET_TAY.md",
@@ -463,8 +433,8 @@
       "sha256": "e628fcdd13deeb80ccf6edd47a29199d2d6f68ada0be1a8e88f70e6e5d807b79"
     }
   ],
-  "all_version_file_count": 86,
-  "source_data_tree_sha256": "f6f53135f134190f030677a5f032c326cf0fe69d7f3126d72a0dc2732426a822",
+  "all_version_file_count": 80,
+  "source_data_tree_sha256": "3d3719814eb4ef150b9c1d034cf1f80f775b8922916e2f0585f5c9853acabe98",
   "tracked_extensions": [
     ".py",
     ".cpp",
