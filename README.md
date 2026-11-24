@@ -13,7 +13,7 @@ Mô hình gồm:
 - 34 đỉnh và 44 cạnh gốc.
 - 12 hướng di chuyển (movement).
 - 5 kịch bản giao thông từ SC01 đến SC05.
-- Website Streamlit gồm 6 màn hình để hiển thị mô hình và kết quả.
+- Website Streamlit gồm 6 trang; trang Mô hình có 4 chế độ trực quan hóa và chức năng so sánh hai kịch bản.
 
 Lưu ý: Dữ liệu Capacity và Demand là số liệu giả định phục vụ mô phỏng, không phải dữ liệu khảo sát giao thông thực tế.
 
@@ -58,7 +58,7 @@ Website gồm 6 phần:
 5. Minimum Cut
 6. So sánh các kịch bản
 
-Người dùng có thể chọn từng kịch bản để xem kết quả tính toán và các thông tin liên quan đến mạng luồng.
+Người dùng có thể chọn từng kịch bản; tại trang Mô hình có thể chuyển giữa Capacity, Flow/Capacity, Residual và Minimum Cut, lọc theo hướng và đặt SC02 cạnh kịch bản đang chọn để so sánh.
 
 ### 3.3. Chạy thuật toán bằng Terminal
 
@@ -147,7 +147,8 @@ Các file chính của dự án:
 | `scenario.py` | Đọc dữ liệu và xây dựng kịch bản |
 | `main.py` | Chạy chương trình bằng Terminal |
 | `app.py` | Giao diện chính Streamlit |
-| `ui_data.py`, `ui_graph.py` | Xử lý dữ liệu và hiển thị đồ thị |
+| `ui_data.py` | Cầu nối dữ liệu; `scenario_edge_changes()` đối chiếu từng cạnh với SC02 |
+| `ui_graph.py` | Hiển thị Capacity, Flow/Capacity, Residual và Minimum Cut; không tính lại luồng |
 | `cpp_edmonds_karp.cpp` | Phiên bản thuật toán bằng C++17 |
 | `data/` | Dữ liệu đầu vào |
 | `tests/` | Các bài kiểm thử |
@@ -166,7 +167,7 @@ Chạy kiểm thử:
 python -m pytest -q
 ```
 
-Theo kết quả kiểm thử đã lưu, chương trình có 39 bài test đạt yêu cầu.
+Theo kết quả kiểm thử của gói hiện hành, chương trình có 51 bài test đạt yêu cầu (bao gồm kiểm thử màu đường tăng và Minimum Cut).
 
 Ngoài ra, nhóm thực hiện đối chiếu kết quả Python và C++ bằng lệnh:
 
@@ -200,3 +201,38 @@ Do đó, kết quả của đồ án chủ yếu phục vụ việc nghiên cứ
 - [HUONG_DAN_WEBSITE.md](HUONG_DAN_WEBSITE.md) - Hướng dẫn sử dụng website.
 - [HUONG_DAN_KIEM_CHUNG_PYTHON_CPP.md](HUONG_DAN_KIEM_CHUNG_PYTHON_CPP.md) - Kiểm chứng kết quả Python và C++.
 - [BAO_CAO_KIEM_CHUNG_MOI.md](BAO_CAO_KIEM_CHUNG_MOI.md) - Báo cáo kết quả kiểm thử.
+
+## Chế độ trực quan hóa và so sánh
+
+Trang **Mô hình** hỗ trợ bốn chế độ: Capacity, Flow/Capacity, Residual và Minimum Cut. Người dùng có thể bật so sánh SC02 với kịch bản đang chọn; hai đồ thị dùng cùng vị trí đỉnh và bộ lọc hướng. Hàm `scenario_edge_changes()` nằm trong `ui_data.py`; các hàm dựng hình nằm trong `ui_graph.py`.
+
+Các hình minh họa 07–09 trong `minh_chung_trinh_duyet/` được kết xuất từ source và dữ liệu hiện hành; chúng không được mô tả là ảnh chụp trình duyệt.
+
+### Kiểm tra màu khi trình diễn
+
+- Ở trang **Edmonds–Karp**, khi chọn một vòng tăng luồng, các **cạnh gốc tương ứng với cung dư đã đi qua** được tô cam (`#eb9634`) trên sơ đồ. Các mã cạnh này xuất phát từ `history[...]["path_arcs"]`. Việc tô cạnh gốc không có nghĩa cung dư ngược là chiều xe thực tế; muốn xem chiều cung dư, sử dụng bảng cung dư hoặc chế độ Residual.
+- Ở trang **Minimum Cut**, các cạnh thuộc lát cắt được tô đỏ (`#d64141`), trong đó cạnh E007 của SC05 có Capacity bằng 0 vẫn được liệt kê theo phép phân hoạch S/T.
+- Trong mã hiện hành, `graph_figure()` phục vụ sơ đồ cạnh gốc ở chế độ Capacity, Flow/Capacity, Minimum Cut và tô đường tăng; riêng hình **cung dư thuận/ngược** được dựng bằng `residual_figure()`. Hai hàm cùng thuộc `ui_graph.py`.
+- Chạy `python -m pytest -q tests/test_streamlit_ui_smoke.py tests/test_website_bridge.py` để kiểm tra màu Plotly và lời gọi thực tế của các trang. Kết quả trực tiếp còn được ghi tại `outputs/KIEM_CHUNG_MAU_DUONG_TANG_MINCUT.log`.
+
+
+
+## Minh chứng benchmark cho Chương 6 và Chương 7
+
+**Bốn tệp có ngay trong ZIP, không cần tải ZIP minh chứng riêng:**
+
+- `benchmark.py` – script tái đo cả DFS và Edmonds–Karp.
+- `outputs/benchmark/benchmark_raw.csv` – 54.090 mẫu thời gian thô.
+- `outputs/benchmark/benchmark_summary.csv` – 8 trung vị dùng trong bảng Chương 6 và 7.
+- `outputs/benchmark/benchmark_metadata.json` – môi trường, giao thức 9 đợt, SHA-256 của các module được benchmark.
+
+Chạy lệnh tại thư mục chứa `graph.py` và `benchmark.py`:
+
+```bash
+python verify_benchmark.py
+python benchmark.py --output outputs/benchmark_tai_do --batches 9 --reps 1000 --large-reps 5 --warmup 20
+```
+
+Lệnh đầu xác thực dữ liệu benchmark đã nộp mà không ghi đè tệp. Lệnh sau là **tái đo mới** và xuất vào thư mục riêng; thời gian đo mới thay đổi theo cấu hình và tải hệ thống nên không nhất thiết trùng giá trị trong Word.
+
+Lưu ý: hai hàm khác khối lượng ghi history, đặc biệt Edmonds–Karp ghi residual_snapshot sau từng vòng, nên đây là thời gian thực thi **hai cài đặt**, không phải phép so sánh cô lập chi phí BFS và DFS.

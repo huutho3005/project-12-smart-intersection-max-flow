@@ -11,8 +11,9 @@ import plotly.express as px
 import streamlit as st
 
 from ui_data import (scenario_catalog, run_scenario, run_all,
-                     cut_display_rows, cut_partition_table)
-from ui_graph import graph_figure, flow_from_residual_snapshot
+                     cut_display_rows, cut_partition_table, scenario_edge_changes)
+from ui_graph import (graph_figure, residual_figure,
+                      flow_from_residual_snapshot)
 
 st.set_page_config(page_title="SMART INTERSECTION", page_icon="🚦",
                    layout="wide", initial_sidebar_state="expanded")
@@ -111,20 +112,85 @@ try:
     elif page == PAGE_NAMES[1]:
         st.title("Mô hình – Đồ thị có hướng")
         result = selected_result()
+        baseline = run_scenario("SC02")
         st.write("Đồ thị phân lớp: **SS → APP → LG → MOV → EXIT → TT**. "
-                 "Đưa chuột lên điểm giữa cạnh để xem mã cạnh và Capacity.")
+                 "Chọn một trong bốn chế độ để xem dung lượng, luồng, mạng dư hoặc lát cắt.")
         direction_names = {"Tất cả":"Tất cả", "Bắc":"N", "Nam":"S", "Đông":"E", "Tây":"W"}
         selection = st.selectbox("Lọc theo hướng tiếp cận", list(direction_names), key="model_direction")
         sub = direction_names[selection]
-        st.plotly_chart(graph_figure(result["nodes"], result["edges"],
-                                     selected_direction=sub), use_container_width=True)
+        mode = st.radio("Chế độ trực quan hóa",
+                        ["Capacity", "Flow/Capacity", "Residual", "Minimum Cut"],
+                        horizontal=True, key="model_view_mode")
+        compare = st.checkbox("So sánh với kịch bản tham chiếu SC02", value=(sid != "SC02"),
+                              key="model_compare_sc02")
+        changes = scenario_edge_changes(baseline["edges"], result["edges"])
+        residual_step = None
+        if mode == "Residual":
+            if compare and sid != "SC02":
+                available_steps = min(len(baseline["history"]), len(result["history"]))
+            else:
+                available_steps = len(result["history"])
+            step_options = ["Trạng thái cuối"] + [f"Vòng {i}" for i in range(1, available_steps + 1)]
+            residual_step = st.selectbox("Trạng thái mạng dư (dùng chung cho hai đồ thị)",
+                                         step_options, key="residual_step_shared")
+
+        def draw_model(target, label):
+            st.markdown(f"**{label}**")
+            flows = {e["edge_id"]: e["flow"] for e in target["edge_flows"]}
+            if mode == "Residual":
+                if residual_step == "Trạng thái cuối":
+                    snapshot = target["residual_final"]
+                else:
+                    idx = int(residual_step.split()[-1]) - 1
+                    snapshot = target["history"][idx]["residual_snapshot"]
+                st.plotly_chart(residual_figure(target["nodes"], target["edges"], snapshot,
+                                                 selected_direction=sub), use_container_width=True)
+                st.caption("Cung dư thuận: nét liền xanh dương. Cung dư ngược: nét đứt tím. "
+                           "Chỉ hiển thị các cung có Residual > 0.")
+            else:
+                cut_ids = [e["edge_id"] for e in target["cut_edges"]] if mode == "Minimum Cut" else []
+                edge_states = scenario_edge_changes(baseline["edges"], target["edges"])
+                fig = graph_figure(target["nodes"], target["edges"], selected_direction=sub,
+                                   cut_ids=cut_ids, flows=flows, mode=mode,
+                                   edge_states=edge_states)
+                st.plotly_chart(fig, use_container_width=True)
+                if mode == "Capacity":
+                    st.caption("Xanh lá: Capacity tăng; vàng: giảm; tím: đổi kết nối; nét đứt: cạnh ngừng hoạt động.")
+                elif mode == "Flow/Capacity":
+                    st.caption("Nhãn trên cạnh thể hiện Flow/Capacity; cạnh bão hòa có Capacity dương được tô cam.")
+                else:
+                    st.caption("Cạnh đỏ thuộc một lát cắt tối thiểu của kịch bản đang xem.")
+
+        if compare and sid != "SC02":
+            col_a, col_b = st.columns(2)
+            with col_a:
+                draw_model(baseline, "SC02 – Kịch bản tham chiếu")
+            with col_b:
+                draw_model(result, f"{SID_LABELS.get(sid, sid)} – Kịch bản đang chọn")
+        else:
+            draw_model(result, SID_LABELS.get(sid, sid))
+
+        changed_rows = []
+        for edge_id, item in changes.items():
+            if item["status"] != "unchanged":
+                old_conn = "—" if item["old_connection"] is None else " → ".join(item["old_connection"])
+                new_conn = "—" if item["new_connection"] is None else " → ".join(item["new_connection"])
+                changed_rows.append({"Mã cạnh":edge_id, "Trạng thái":item["status"],
+                                     "Kết nối SC02":old_conn, "Kết nối hiện tại":new_conn,
+                                     "Capacity SC02":item["old_capacity"],
+                                     "Capacity hiện tại":item["new_capacity"]})
+        with st.expander("Xem các cạnh thay đổi so với SC02"):
+            if changed_rows:
+                st.dataframe(pd.DataFrame(changed_rows), hide_index=True, use_container_width=True)
+            else:
+                st.info("Không có cạnh thay đổi so với SC02.")
         with st.expander("Xem 44 cạnh và dung lượng dữ liệu gốc"):
             st.dataframe(pd.DataFrame([
                 {"Mã cạnh":e["id"], "Đỉnh đầu":e["u"], "Đỉnh cuối":e["v"],
                  "Capacity":e["capacity"]} for e in result["edges"]
             ]), hide_index=True, use_container_width=True)
-        st.caption("Mỗi đường vẽ là một cạnh gốc. Cung dư ngược chỉ xuất hiện "
-                   "trong bước thực thi Edmonds–Karp, không phải hướng xe chạy ngược.")
+        st.caption("Mỗi đường vẽ là một cạnh gốc. Cung dư ngược là thao tác điều chỉnh luồng "
+                   "trong thuật toán, không phải hướng xe chạy ngược chiều.")
 
     elif page == PAGE_NAMES[2]:
         st.title("Chọn Scenario – Dữ liệu đầu vào")
@@ -144,20 +210,21 @@ try:
         col1.metric("Demand", f'{sum(int(m["demand_scenario"]) for m in moves):,}')
         col2.metric("Nhóm làn", len(lanes))
         col3.metric("Cạnh", len(graph.edges))
-        baseline, *_ = __import__("scenario").load_scenario("SC02")
-        ref = {e["id"]: e for e in baseline.edges}
-        changes = []
-        for edge in graph.edges:
-            old = ref[edge["id"]]
-            if old["capacity"] != edge["capacity"] or (old["u"],old["v"]) != (edge["u"],edge["v"]):
-                changes.append({"Cạnh":edge["id"],
-                                "SC02 (đỉnh đầu → cuối)": f'{old["u"]} → {old["v"]}',
-                                "Kịch bản này": f'{edge["u"]} → {edge["v"]}',
-                                "Capacity SC02":old["capacity"],
-                                "Capacity hiện tại":edge["capacity"]})
+        baseline_graph, *_ = __import__("scenario").load_scenario("SC02")
+        changes = scenario_edge_changes(baseline_graph.edges, graph.edges)
+        changed_rows = []
+        for edge_id, item in changes.items():
+            if item["status"] != "unchanged":
+                old_conn = "—" if item["old_connection"] is None else " → ".join(item["old_connection"])
+                new_conn = "—" if item["new_connection"] is None else " → ".join(item["new_connection"])
+                changed_rows.append({"Cạnh":edge_id, "Trạng thái":item["status"],
+                                     "SC02 (đỉnh đầu → cuối)":old_conn,
+                                     "Kịch bản này":new_conn,
+                                     "Capacity SC02":item["old_capacity"],
+                                     "Capacity hiện tại":item["new_capacity"]})
         st.subheader("Những thay đổi so với SC02")
-        if changes:
-            st.dataframe(pd.DataFrame(changes), hide_index=True, use_container_width=True)
+        if changed_rows:
+            st.dataframe(pd.DataFrame(changed_rows), hide_index=True, use_container_width=True)
         elif sid == "SC02":
             st.success("Đây là kịch bản tham chiếu SC02.")
         else:
@@ -209,8 +276,11 @@ try:
                 st.dataframe(pd.DataFrame(arc_rows), hide_index=True, use_container_width=True)
                 flows = flow_from_residual_snapshot(result["edges"], step["residual_snapshot"])
                 st.plotly_chart(graph_figure(result["nodes"], result["edges"],
-                                             path_ids=[a["edge_id"] for a in step["path_arcs"]],
-                                             flows=flows), use_container_width=True)
+                                             path_arcs=step["path_arcs"],
+                                             flows=flows, mode="Capacity"), use_container_width=True)
+                st.caption("Đường cam nét liền: cung dư thuận; cam nét đứt: cung dư ngược. "
+                           "Mũi tên màu cam là chiều BFS thực sự đi trên mạng dư, "
+                           "không nhất thiết trùng chiều cạnh gốc.")
                 with st.expander("Mạng dư SAU vòng này (88 cung thuận/ngược)"):
                     only_positive = st.checkbox("Chỉ xem Residual > 0", value=True)
                     rows = step["residual_snapshot"]
@@ -239,8 +309,8 @@ try:
         st.success("Đạt kiểm chứng: Maximum Flow = Minimum Cut")
         st.plotly_chart(graph_figure(result["nodes"], result["edges"],
                                      cut_ids=[e["edge_id"] for e in result["cut_edges"]],
-                                     flows={e["edge_id"]:e["flow"] for e in result["edge_flows"]}),
-                        use_container_width=True)
+                                     flows={e["edge_id"]:e["flow"] for e in result["edge_flows"]},
+                                     mode="Minimum Cut"), use_container_width=True)
         st.caption("Đường màu đỏ là cạnh thuộc một lát cắt tối thiểu. Cạnh giới hạn Demand "
                    "không đồng nghĩa với điểm ùn tắc hạ tầng. Trong SC05, E007=0 "
                    "được phân loại riêng là nhóm làn LG_N_R không hoạt động.")

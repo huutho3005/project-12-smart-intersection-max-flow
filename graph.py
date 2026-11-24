@@ -8,6 +8,7 @@ class FlowGraph:
             raise ValueError("Trùng tên đỉnh")
         self.adj = {u: [] for u in self.nodes}
         self.edges = []  # Các cạnh GỐC, không gồm cạnh ngược mạng dư
+        self.edge_ids = set()  # Tra cứu mã cạnh đã có: trung bình O(1)
 
     def add_edge(self, edge_id, u, v, capacity):
         if u not in self.adj or v not in self.adj:
@@ -16,7 +17,7 @@ class FlowGraph:
             raise ValueError("Không dùng khuyên (self-loop): %s" % edge_id)
         if type(capacity) is not int or capacity < 0:
             raise ValueError("Capacity không hợp lệ tại %s" % edge_id)
-        if any(edge["id"] == edge_id for edge in self.edges):
+        if edge_id in self.edge_ids:
             raise ValueError("Trùng mã cạnh: %s" % edge_id)
 
         # Chỉ số để hai cung dư biết cung đảo tương ứng.
@@ -30,6 +31,7 @@ class FlowGraph:
                             "edge_id": edge_id, "arc_type": "reverse"})
         self.edges.append({"id": edge_id, "u": u, "v": v,
                            "capacity": capacity, "index": i})
+        self.edge_ids.add(edge_id)
 
     def original_flows(self):
         """Luồng từng cạnh gốc = Capacity - dung lượng dư thuận."""

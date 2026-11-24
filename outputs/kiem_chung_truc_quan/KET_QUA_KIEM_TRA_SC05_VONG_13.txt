@@ -1,0 +1,7 @@
+SC05 VONG 13: PASS
+Bottleneck=45
+9 cung du, trong do 2 cung nguoc
+E030: EXIT_S -> MOV_N_T (net dut cam, mui ten nguoc chieu canh goc)
+E018: MOV_N_T -> LG_N_T (net dut cam, mui ten nguoc chieu canh goc)
+7 cung thuan: net lien cam
+Tat ca mui ten Plotly duoc kiem tra tich vo huong voi vector from->to >0

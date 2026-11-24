@@ -1,4 +1,4 @@
-COMMAND: /home/nguyenhuutho/taivechorme/SMART_INTERSECTION_GITHUB_READY/SMART_INTERSECTION_SOURCE_ON_DINH_DE_NOP/.venv/bin/python /home/nguyenhuutho/taivechorme/SMART_INTERSECTION_GITHUB_READY/SMART_INTERSECTION_SOURCE_ON_DINH_DE_NOP/main.py --all --output /tmp/smart_intersection_compare_q1eyaeim/python_output
+COMMAND: /opt/pyvenv/bin/python /mnt/data/smart_path_arcs_fix/src/main.py --all --output /tmp/smart_intersection_compare_cou410vx/python_output
 RETURN_CODE: 0
 
 SC01 – Baseline
@@ -36,4 +36,4 @@ S: APP_E, APP_N, APP_S, APP_W, EXIT_S, LG_E_L, LG_E_T, LG_N_L, LG_N_T, LG_S_L, L
 T: EXIT_E, EXIT_N, EXIT_W, LG_E_R, LG_N_R, LG_S_R, MOV_E_R, MOV_E_T, MOV_N_L, MOV_N_R, MOV_S_L, MOV_S_R, MOV_S_T, MOV_W_L, MOV_W_T, TT
 Cut edges: E007, E010, E013, E017, E019, E020, E021, E024, E026, E027, E042
 
-Đã xuất CSV kết quả vào: /tmp/smart_intersection_compare_q1eyaeim/python_output
+Đã xuất CSV kết quả vào: /tmp/smart_intersection_compare_cou410vx/python_output

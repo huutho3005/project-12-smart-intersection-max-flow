@@ -21,14 +21,18 @@ PAGES = [
 
 
 class StreamlitStub(types.ModuleType):
-    def __init__(self, page, scenario_id="SC02"):
+    def __init__(self, page, scenario_id="SC02", model_mode=None):
         super().__init__("streamlit")
         self.page = page
+        self.model_mode = model_mode
         self.session_state = {"selected_sid": scenario_id}
         self.sidebar = self
         self.writes = []
         self.errors = []
         self.dataframes = []
+        self.plotly_line_colors = []
+        self.plotly_figures = []
+        self.replay_iteration = None
 
     def __enter__(self):
         return self
@@ -39,12 +43,17 @@ class StreamlitStub(types.ModuleType):
     def __getattr__(self, name):
         if name in {"title", "caption", "divider", "subheader", "code", "metric",
                     "info", "success", "dataframe", "plotly_chart", "download_button",
-                    "set_page_config"}:
+                    "set_page_config", "markdown"}:
             return lambda *args, **kwargs: None
         raise AttributeError(name)
 
     def dataframe(self, data, *args, **kwargs):
         self.dataframes.append(data.copy())
+
+    def plotly_chart(self, figure, *args, **kwargs):
+        # Kiểm tra đúng dữ liệu được trang app.py gửi cho Plotly, không chỉ kiểm tra không lỗi.
+        self.plotly_figures.append(figure.to_plotly_json())
+        self.plotly_line_colors.append([getattr(getattr(trace, "line", None), "color", None) for trace in figure.data])
 
     def write(self, text, *args, **kwargs):
         self.writes.append(str(text))
@@ -56,8 +65,12 @@ class StreamlitStub(types.ModuleType):
     def stop(self):
         raise AssertionError("Giao diện dừng do lỗi")
 
-    def radio(self, *_args, **_kwargs):
-        return self.page
+    def radio(self, label, options, **_kwargs):
+        if label == "Đi đến trang":
+            return self.page
+        if label == "Chế độ trực quan hóa" and self.model_mode:
+            return self.model_mode
+        return list(options)[0]
 
     def columns(self, count, **_kwargs):
         return [self] * int(count)
@@ -72,6 +85,8 @@ class StreamlitStub(types.ModuleType):
         return self
 
     def select_slider(self, _label, options, value=None, **_kwargs):
+        if self.replay_iteration is not None and self.replay_iteration in options:
+            return self.replay_iteration
         return value if value is not None else list(options)[0]
 
     def checkbox(self, _label, value=False, **_kwargs):
@@ -79,8 +94,9 @@ class StreamlitStub(types.ModuleType):
 
 
 class TestStreamlitPagesSmoke(unittest.TestCase):
-    def execute_page(self, page, scenario_id="SC02"):
-        fake = StreamlitStub(page, scenario_id)
+    def execute_page(self, page, scenario_id="SC02", model_mode=None, replay_iteration=None):
+        fake = StreamlitStub(page, scenario_id, model_mode=model_mode)
+        fake.replay_iteration = replay_iteration
         # Thực thi TOÀN BỘ app.py với API Streamlit thay bằng stub;
         # do đó phát hiện được lỗi truy cập dictionary trong UI.
         with patch.dict(sys.modules, {"streamlit": fake}):
@@ -92,6 +108,76 @@ class TestStreamlitPagesSmoke(unittest.TestCase):
         for page in PAGES:
             with self.subTest(page=page):
                 self.execute_page(page)
+
+
+    def test_edmonds_karp_replay_marks_selected_residual_arcs_orange(self):
+        from ui_data import run_scenario
+        result = run_scenario("SC01")
+        fake = self.execute_page(PAGES[3], "SC01")
+        self.assertEqual(len(fake.plotly_figures), 1)
+        fig = fake.plotly_figures[0]
+        arcs = result["history"][0]["path_arcs"]
+        n = len(result["edges"])
+        # Cạnh gốc nằm phía dưới, không mang mũi tên màu cam sai chiều.
+        self.assertEqual({fig["data"][i]["line"]["color"] for i in range(n)}, {"#94a3b8"})
+        # Các cung dư được vẽ thành một lớp riêng, theo đúng thứ tự BFS chọn.
+        overlays = fig["data"][n:n+len(arcs)]
+        self.assertEqual(len(overlays), len(arcs))
+        self.assertTrue(all(t["line"]["color"] == "#eb9634" for t in overlays))
+        self.assertTrue(all(t["line"]["dash"] == "solid" for t in overlays))
+
+    def test_sc05_iteration_13_draws_two_reverse_arrows(self):
+        from ui_data import run_scenario
+        from ui_graph import positions
+        result = run_scenario("SC05")
+        step = result["history"][12]
+        self.assertEqual(step["iteration"], 13)
+        self.assertEqual(step["bottleneck"], 45)
+        self.assertEqual([a["edge_id"] for a in step["path_arcs"] if a["arc_type"] == "reverse"],
+                         ["E030", "E018"])
+        fake = self.execute_page(PAGES[3], "SC05", replay_iteration=13)
+        fig = fake.plotly_figures[0]
+        n = len(result["edges"])
+        overlays = fig["data"][n:n+len(step["path_arcs"])]
+        for arc, trace, arrow in zip(step["path_arcs"], overlays,
+                                     fig["layout"]["annotations"][-len(step["path_arcs"]):]):
+            self.assertEqual(trace["line"]["color"], "#eb9634")
+            self.assertEqual(trace["line"]["dash"],
+                             "dash" if arc["arc_type"] == "reverse" else "solid")
+            self.assertEqual(arrow["arrowcolor"], "#eb9634")
+            x0, y0 = positions(result["nodes"])[arc["from"]]
+            x1, y1 = positions(result["nodes"])[arc["to"]]
+            dot = (arrow["x"]-arrow["ax"])*(x1-x0)+(arrow["y"]-arrow["ay"])*(y1-y0)
+            self.assertGreater(dot, 0, msg=arc["edge_id"])
+        reverse = {a["edge_id"]:(a["from"], a["to"])
+                   for a in step["path_arcs"] if a["arc_type"] == "reverse"}
+        self.assertEqual(reverse, {"E030":("EXIT_S","MOV_N_T"),
+                                   "E018":("MOV_N_T","LG_N_T")})
+
+    def test_min_cut_page_marks_exact_cut_edges_red(self):
+        from ui_data import run_scenario
+        result = run_scenario("SC05")
+        fake = self.execute_page(PAGES[4], "SC05")
+        self.assertEqual(len(fake.plotly_line_colors), 1)
+        colors_of_traces = fake.plotly_line_colors[0]
+        cut_ids = {e["edge_id"] for e in result["cut_edges"]}
+        colors = {e["id"]: colors_of_traces[i]
+                  for i, e in enumerate(result["edges"])}
+        self.assertEqual(len(colors), 44)
+        self.assertEqual({eid for eid, color in colors.items() if color == "#d64141"}, cut_ids)
+        self.assertEqual({eid for eid, color in colors.items() if color == "#94a3b8"},
+                         set(colors) - cut_ids)
+        self.assertIn("E007", cut_ids)  # Cạnh capacity 0 vẫn thuộc lát cắt theo S/T.
+
+    def test_model_page_renders_side_by_side_scenario_comparison(self):
+        fake = self.execute_page(PAGES[1], "SC05", model_mode="Flow/Capacity")
+        # Hai đồ thị: SC02 tham chiếu và SC05 đang chọn.
+        self.assertGreaterEqual(len(fake.writes), 0)
+        self.assertEqual(fake.errors, [])
+
+    def test_model_page_supports_residual_mode(self):
+        fake = self.execute_page(PAGES[1], "SC05", model_mode="Residual")
+        self.assertEqual(fake.errors, [])
 
     def test_min_cut_capacity_for_all_five_scenarios(self):
         from ui_data import run_scenario

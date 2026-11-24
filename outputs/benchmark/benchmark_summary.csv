@@ -1,0 +1,9 @@
+graph,algorithm,vertices,edges,max_flow,iterations,batches,reps_per_batch,warmup,median_of_batch_medians_ms
+Small-6v-8e,DFS,6,8,12,4,9,1000,20,0.007871
+Small-6v-8e,BFS,6,8,12,4,9,1000,20,0.02055
+SC01,DFS,34,44,6511,12,9,1000,20,0.072757
+SC01,BFS,34,44,6511,12,9,1000,20,0.357915
+SC02,DFS,34,44,7145,12,9,1000,20,0.077859
+SC02,BFS,34,44,7145,12,9,1000,20,0.354781
+Large-322v-440e,DFS,322,440,65110,120,9,5,20,2.289704
+Large-322v-440e,BFS,322,440,65110,120,9,5,20,34.889587

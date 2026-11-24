@@ -1,4 +1,4 @@
-COMMAND: /tmp/smart_intersection_compare_q1eyaeim/ek_cpp_independent --all --data /home/nguyenhuutho/taivechorme/SMART_INTERSECTION_GITHUB_READY/SMART_INTERSECTION_SOURCE_ON_DINH_DE_NOP/data
+COMMAND: /tmp/smart_intersection_compare_cou410vx/ek_cpp_independent --all --data /mnt/data/smart_path_arcs_fix/src/data
 RETURN_CODE: 0
 scenario_id,max_flow,min_cut,bfs_iterations
 SC01,6511,6511,12

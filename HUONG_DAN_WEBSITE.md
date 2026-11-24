@@ -17,7 +17,7 @@ Mở địa chỉ Streamlit in ra trong Terminal (thường là http://localhost
 ## Sáu trang
 
 1. **Tổng quan:** tổng số Nodes/Edges/Movements/Scenarios thực đọc từ file; Demand, Maximum Flow, Minimum Cut.
-2. **Mô hình:** đồ thị 34 đỉnh/44 cạnh theo 6 lớp; lọc theo hướng; hover cạnh để xem Capacity.
+2. **Mô hình:** đồ thị 34 đỉnh/44 cạnh theo 6 lớp; lọc theo hướng; chuyển giữa bốn chế độ Capacity, Flow/Capacity, Residual và Minimum Cut; so sánh SC02 với kịch bản đang chọn trên hai đồ thị cùng vị trí đỉnh.
 3. **Chọn Scenario:** SC01–SC05, metadata `Lane_Groups.csv` và `Movements.csv`; liệt kê thay đổi so với SC02.
 4. **Edmonds–Karp:** nhấn nút chạy thật; xem tất cả vòng tăng, bottleneck, tổng luồng, đường tăng; phát lại mạng dư sau từng vòng và cung BFS đã chọn.
 5. **Minimum Cut:** tập S, tập T, danh sách cạnh cắt, tổng Capacity, ý nghĩa giao thông; kiểm tra Max-Flow = Min-Cut.
@@ -31,8 +31,8 @@ Mở địa chỉ Streamlit in ra trong Terminal (thường là http://localhost
 - `ford_fulkerson.py`: chạy DFS để đối chiếu từ bản sao mạng độc lập.
 - `min_cut.py`: tìm tập S/T trên mạng dư cuối, xác định cạnh gốc đi từ S sang T.
 - `validator.py`: kiểm tra các ràng buộc Capacity, Flow Conservation và Max-Flow = Min-Cut.
-- `ui_data.py`: **cầu nối**, chỉ gọi lại những module trên và tổng hợp kết quả.
-- `ui_graph.py`: chỉ vẽ đồ thị, không tính luồng.
+- `ui_data.py`: **cầu nối**, chỉ gọi lại những module trên, tổng hợp kết quả và dùng `scenario_edge_changes()` để đối chiếu từng cạnh với SC02.
+- `ui_graph.py`: chỉ vẽ đồ thị, không tính luồng; hỗ trợ `graph_figure()` cho Capacity, Flow/Capacity, Minimum Cut và `residual_figure()` cho các cung dư thuận/ngược.
 - `app.py`: điều khiển 6 trang.
 
 ## Dữ liệu
@@ -67,4 +67,23 @@ C++ cần trình biên dịch `g++` (C++17). Phần mềm hiện tại là mô h
 
 - Ở SC05, E007 Capacity=0 được ghi **Nhóm làn không hoạt động (SC05)**, do metadata `LG_N_R.is_active=0`, không gọi là giới hạn Demand hoặc ùn tắc vật lý.
 - Hai tập đỉnh được hiển thị dạng bảng hai cột, **một đỉnh mỗi hàng**, cuộn dọc được; hai đỉnh cùng một hàng không có nghĩa là nối trực tiếp.
-- Kiểm tra lại bằng `python -m unittest discover -s tests -v` (39 bài kiểm thử ở phiên bản hiện hành) và mở trực tiếp trang 5 trên Chrome với SC05.
+- Kiểm tra lại bằng `python -m unittest discover -s tests -v` (43 bài kiểm thử ở phiên bản giao diện đã nâng cấp). Bộ kiểm thử khói mô phỏng đường chạy cả sáu trang; đây không thay thế việc cài requirements và mở website thật trên máy nộp.
+
+## Bốn chế độ trực quan hóa tại trang Mô hình
+
+- **Capacity:** so sánh từng cạnh với SC02; xanh lá là tăng Capacity, vàng là giảm, tím là đổi kết nối, nét đứt là cạnh chuyển sang Capacity = 0.
+- **Flow/Capacity:** ghi nhãn Flow/Capacity trên từng cạnh; cạnh bão hòa có Capacity dương được tô cam.
+- **Residual:** chọn trạng thái cuối hoặc một vòng tăng luồng; cung dư thuận là nét liền xanh dương, cung dư ngược là nét đứt tím. Chỉ các cung có Residual > 0 được vẽ.
+- **Minimum Cut:** tô đỏ các cạnh thuộc lát cắt tối thiểu của kịch bản đang xem.
+
+Khi bật **So sánh với kịch bản tham chiếu SC02**, trang Mô hình hiển thị hai đồ thị cạnh nhau với cùng vị trí đỉnh, bộ lọc hướng và chế độ trực quan hóa. Ở chế độ Residual, hai đồ thị dùng cùng vòng tăng luồng để đối chiếu.
+
+`scenario_edge_changes(reference_edges, current_edges)` là hàm thực tế trong `ui_data.py`; hàm so sánh Edge ID, Capacity và hai đầu cạnh, không làm thay đổi dữ liệu hay kết quả thuật toán.
+
+## Hình minh họa chế độ mới
+
+- `minh_chung_trinh_duyet/07_Mo_hinh_Flow_Capacity.png`
+- `minh_chung_trinh_duyet/08_Mo_hinh_Residual.png`
+- `minh_chung_trinh_duyet/09_So_sanh_SC02_SC05.png`
+
+Ba hình này được kết xuất từ dữ liệu và các hàm trực quan hóa trong source (`ui_graph.py`), không phải ảnh chụp trình duyệt thật. Ảnh 01–06 là ảnh chụp trình duyệt do nhóm cung cấp trước đó.

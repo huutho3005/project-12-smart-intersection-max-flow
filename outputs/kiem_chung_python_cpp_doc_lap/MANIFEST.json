@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-11-22T02:47:12.895565+00:00",
-  "python_executable": "/home/nguyenhuutho/taivechorme/SMART_INTERSECTION_GITHUB_READY/SMART_INTERSECTION_SOURCE_ON_DINH_DE_NOP/.venv/bin/python",
-  "python_version": "3.14.7",
+  "timestamp_utc": "2026-11-23T18:11:15.496131+00:00",
+  "python_executable": "/opt/pyvenv/bin/python",
+  "python_version": "3.13.5",
   "cpp_compiler": "/usr/bin/g++",
   "source_python_sha256": "5ef7ce3df1ebc7c9ff76f9833383fcc189501fee558b45759fc72623b09892b7",
   "source_cpp_sha256": "560f3abd3277b729b0850ba6a0927f65366daa35c05ad7312b5fcb862a704b6b",
@@ -35,12 +35,17 @@
     {
       "file": "BAO_CAO_KIEM_CHUNG_MOI.md",
       "category": "documentation",
-      "sha256": "ee046cb96ff3136aaa46e12735e01ed8eedf86045b856dad0bcc738340cd05b2"
+      "sha256": "098497bd3b5d32cc159741bb0515d0bba414217837f2f2bffcdfe93a88ad6d83"
+    },
+    {
+      "file": "HUONG_DAN_BENCHMARK_CHUONG6.md",
+      "category": "documentation",
+      "sha256": "529087d59f2c0ec37afc623c661ca688b71b1bb6443aa461c4903681e99d8d8d"
     },
     {
       "file": "HUONG_DAN_EDGE_CASES_CHUONG_6.md",
       "category": "documentation",
-      "sha256": "6692a04ff9b20fc5a3fd43a5482df692406391229a097ba0420052735d5750f9"
+      "sha256": "d7adf391799bd320c50596394af14c2b4db2b77d45d6780d2ea392be73904759"
     },
     {
       "file": "HUONG_DAN_KIEM_CHUNG_PYTHON_CPP.md",
@@ -50,12 +55,12 @@
     {
       "file": "HUONG_DAN_WEBSITE.md",
       "category": "documentation",
-      "sha256": "6740c48f90a2f65f15b0e29b87a6390fa8bee942a159610de5eeed784eee809f"
+      "sha256": "7d987a57c980a225142b310e94b9fdbef05c93a9b595a14cdce9dca0c8cd6569"
     },
     {
       "file": "README.md",
       "category": "documentation",
-      "sha256": "809692630e00928db1e22126818a643859eb01086a257a8bb6d83ef7af83c44e"
+      "sha256": "1e6576e29f390077c2d6e0de9e8a7bd48eb91162a75dd80eb8fac7666d6ce6ba"
     },
     {
       "file": "VIET_TAY.md",
@@ -65,7 +70,12 @@
     {
       "file": "app.py",
       "category": "python_source",
-      "sha256": "91d215fc106ff3096afb26a3ddec3e5e5aa0b745bc3b97d9982c99b60cc1e759"
+      "sha256": "1a92bbdf71c60aad1b674651dfeff51e2874ac82d86656e534bcb3f6dfcba668"
+    },
+    {
+      "file": "benchmark.py",
+      "category": "python_source",
+      "sha256": "fd0b5c6fb9b13907da17eb78bde3298302340f0083452541a9f9ce3ec21bb37f"
     },
     {
       "file": "bfs.py",
@@ -195,7 +205,7 @@
     {
       "file": "graph.py",
       "category": "python_source",
-      "sha256": "ac5e455de35ef4333e6b82fb43a791595dc877c277e08896bd08367531359ae1"
+      "sha256": "b5d730386db165e50687bedb3ac5a5d5a4e6d0f4db16738af03692d824b75c8b"
     },
     {
       "file": "kiem_tra_co_y_sai_khac.py",
@@ -253,9 +263,24 @@
       "sha256": "d4645b92780d7b16e50ae4f3d552eec089c13890327f4ff441e9e0c7ad9e63a3"
     },
     {
+      "file": "minh_chung_trinh_duyet/07_Mo_hinh_Flow_Capacity.png",
+      "category": "browser_screenshot_evidence",
+      "sha256": "804c52f836d7c94be6408a2b4cb752fba58688494e998dabd734a14831f313c5"
+    },
+    {
+      "file": "minh_chung_trinh_duyet/08_Mo_hinh_Residual.png",
+      "category": "browser_screenshot_evidence",
+      "sha256": "07f1e625b0d02cd33b5fd6cc354214da09dd2ffd286e8e0bdae658189da3ef71"
+    },
+    {
+      "file": "minh_chung_trinh_duyet/09_So_sanh_SC02_SC05.png",
+      "category": "browser_screenshot_evidence",
+      "sha256": "91dfa3f3da83fc65a30b004aada324ed47a34dd3b2f25a010bbb89817e027b91"
+    },
+    {
       "file": "minh_chung_trinh_duyet/HUONG_DAN_ANH_MINH_CHUNG.md",
       "category": "browser_screenshot_evidence",
-      "sha256": "5bbfce8fdff402fe111c5ec99769a5d71107c7f4be358055829cddfd1cd5002e"
+      "sha256": "fb8c1c814b91b0b43ceb9eb892d5f4773fd0199ad10f6082cdaf67fb2102135b"
     },
     {
       "file": "minh_chung_trinh_duyet/PHU_LUC_ANH_WEBSITE_6_MAN_HINH.pdf",
@@ -383,6 +408,11 @@
       "sha256": "240d71333397b0b6ee3a4f5c8e1aea01453b1abbb28b7245a1f4981fef7c0335"
     },
     {
+      "file": "tests/test_graph_edge_ids.py",
+      "category": "test_code_or_fixture",
+      "sha256": "aa064f1f1d224bed8d11e932e6dd0c0d90957682035fb19a41f032281171a567"
+    },
+    {
       "file": "tests/test_manifest_integrity.py",
       "category": "test_code_or_fixture",
       "sha256": "033a217c86167f83ccc3446f163ebfc9e0cd7ec0f8c3c4b46c4a7256e14f5e1b"
@@ -400,27 +430,32 @@
     {
       "file": "tests/test_streamlit_ui_smoke.py",
       "category": "test_code_or_fixture",
-      "sha256": "dfd6b08a5aa2558e7fa611922a2bf53a9f8d7b80cf4aa056bf9d50119cc9566a"
+      "sha256": "52e5978979ab0b238f52be82e4004a615a0ebb45ab6e8f0dd71e3b9d1784dbcc"
     },
     {
       "file": "tests/test_website_bridge.py",
       "category": "test_code_or_fixture",
-      "sha256": "e7198dde2d5280391ec8dd4e5769b793afad9a8480231b58f5fa6ca957a911b1"
+      "sha256": "501213f72f17a341968d2a1b1e5c193cec7772928e8e823c4e48648fe2f31e52"
     },
     {
       "file": "ui_data.py",
       "category": "python_source",
-      "sha256": "8bf2c1d824c91ce480651d19c07c17a081755d20807a4905c7a9fd88d1b62f85"
+      "sha256": "d1fe7281b7ca6e3ec9844565b336a412270675837600e7e902c733a411512282"
     },
     {
       "file": "ui_graph.py",
       "category": "python_source",
-      "sha256": "f14b0fa164bd5a3d3a06a9841a918c0d0489e2d7567add95e1dbbe6c0fc826c5"
+      "sha256": "aa1ab023813a70c42bbd32e5b1deb6e59a3a96526eda3057c14c91df4bf4bf4a"
     },
     {
       "file": "validator.py",
       "category": "python_source",
       "sha256": "fdf47fa1f1f9805f7cc6369b791c65516b93890470784245f3d30e5801c8d4a1"
+    },
+    {
+      "file": "verify_benchmark.py",
+      "category": "python_source",
+      "sha256": "3bec56eab29a3d7b4626324f6dd86d86913e5b1c5179671e988886cb0be3e296"
     },
     {
       "file": "verify_independent_processes.py",
@@ -433,8 +468,8 @@
       "sha256": "e628fcdd13deeb80ccf6edd47a29199d2d6f68ada0be1a8e88f70e6e5d807b79"
     }
   ],
-  "all_version_file_count": 80,
-  "source_data_tree_sha256": "3d3719814eb4ef150b9c1d034cf1f80f775b8922916e2f0585f5c9853acabe98",
+  "all_version_file_count": 87,
+  "source_data_tree_sha256": "6c32c3c0bcc81a08d5d4bf44e0e142b493a07300532aacfc5a08bbb8d15e9384",
   "tracked_extensions": [
     ".py",
     ".cpp",

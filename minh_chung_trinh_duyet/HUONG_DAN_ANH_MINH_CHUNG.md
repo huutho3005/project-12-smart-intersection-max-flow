@@ -1,9 +1,22 @@
 # Phụ lục hình ảnh website SMART INTERSECTION
 
-**Nguồn ảnh:** 6 ảnh chụp **trình duyệt thật** mà thành viên nhóm đã cung cấp ngày 22/11/2026. Đây là ảnh đã có, **không phải ảnh mới do trợ lý mở trình duyệt và chụp**.
+## Nguồn và phạm vi hình ảnh
 
-Ảnh 01–06 thể hiện sáu chức năng chính của website. Có thể đưa ảnh PNG vào báo cáo Word Chương 5 hoặc dùng PDF kèm theo.
+- **Ảnh 01–06:** ảnh chụp trình duyệt thật do thành viên nhóm cung cấp ngày 22/11/2026. Đây là ảnh đã có, không phải ảnh mới được chụp trong lần nâng cấp source này.
+- **Hình 07–09:** hình minh họa được kết xuất trực tiếp từ dữ liệu SC05/SC02 và các hàm trong `ui_graph.py`; không phải ảnh chụp trình duyệt thật. Các hình này minh họa ba chức năng mới: Flow/Capacity, Residual và so sánh hai kịch bản.
 
-**Cần bổ sung trước khi chốt minh chứng cuối:** Ảnh Minimum Cut (05) được chụp trước lần sửa phân loại E007. Hãy mở source hiện hành trên máy, chọn SC05, xác nhận E007 ghi **“Nhóm làn không hoạt động (SC05)”**, bảng tập S/T đủ 34 đỉnh; chụp lại ảnh không có thông báo màn hình và thay 05 bằng ảnh mới. Khi thay đổi ảnh, kiểm tra lại SHA-256 và tạo manifest phát hành mới.
+## Danh mục
 
-Bản PDF được lập từ **ảnh do nhóm cung cấp** và không phải bằng chứng rằng gói source cuối được thử trên máy khác hay trong phiên trình duyệt độc lập mới.
+| Tệp | Nội dung | Nguồn |
+|---|---|---|
+| 01_Tong_quan.png | Trang Tổng quan | Ảnh chụp trình duyệt do nhóm cung cấp |
+| 02_Mo_hinh_do_thi.png | Trang Mô hình đồ thị | Ảnh chụp trình duyệt do nhóm cung cấp |
+| 03_Chon_SC05.png | Chọn kịch bản SC05 | Ảnh chụp trình duyệt do nhóm cung cấp |
+| 04_Edmonds_Karp_SC05.png | Phát lại Edmonds–Karp | Ảnh chụp trình duyệt do nhóm cung cấp |
+| 05_Min_Cut_do_thi.png | Trang Minimum Cut | Ảnh chụp trình duyệt do nhóm cung cấp; cần mở source cuối để xác nhận nội dung E007 hiện hành |
+| 06_So_sanh_5_kich_ban.png | Trang So sánh | Ảnh chụp trình duyệt do nhóm cung cấp |
+| 07_Mo_hinh_Flow_Capacity.png | Chế độ Flow/Capacity | Kết xuất từ `graph_figure()` |
+| 08_Mo_hinh_Residual.png | Mạng dư cuối SC05 | Kết xuất từ `residual_figure()` |
+| 09_So_sanh_SC02_SC05.png | So sánh SC02 và SC05 | Kết xuất từ `graph_figure()` và `scenario_edge_changes()` |
+
+Ba hình 07–09 là minh họa đồ họa được sinh từ source, không thay thế việc mở website thật trên máy nộp. Bộ kiểm thử khói cũng không thay thế kiểm thử trình duyệt; trước khi nộp, nhóm cần cài thư viện theo `requirements.txt`, chạy `streamlit run app.py` và xác nhận tương tác thực tế.

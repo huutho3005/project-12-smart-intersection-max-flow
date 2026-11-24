@@ -1,0 +1,11 @@
+KIỂM TRA MÀU ĐỒ THỊ - SOURCE CUỐI
+Đường tăng: cam #eb9634; Minimum Cut: đỏ #d64141
+Kiểm tra theo đúng màu của từng trace Plotly gốc (44 cạnh).
+
+SC01: PASS | 44 cạnh | 5 cam (đường tăng đầu) | 12 đỏ (Min-Cut) | MaxFlow=6511 MinCut=6511
+SC02: PASS | 44 cạnh | 5 cam (đường tăng đầu) | 12 đỏ (Min-Cut) | MaxFlow=7145 MinCut=7145
+SC03: PASS | 44 cạnh | 5 cam (đường tăng đầu) | 12 đỏ (Min-Cut) | MaxFlow=6073 MinCut=6073
+SC04: PASS | 44 cạnh | 5 cam (đường tăng đầu) | 8 đỏ (Min-Cut) | MaxFlow=7708 MinCut=7708
+SC05: PASS | 44 cạnh | 5 cam (đường tăng đầu) | 11 đỏ (Min-Cut) | MaxFlow=7401 MinCut=7401
+
+Lưu ý: chỉ kiểm tra biểu diễn màu trong Plotly; chưa phải ảnh chụp trình duyệt Streamlit.

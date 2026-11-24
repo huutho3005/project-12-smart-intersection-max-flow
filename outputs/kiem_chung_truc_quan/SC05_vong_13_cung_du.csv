@@ -1,0 +1,10 @@
+﻿order,edge_id,arc_type,from,to,dash,color
+1,E004,forward,SS,APP_W,solid,#eb9634
+2,E016,forward,APP_W,LG_W_R,solid,#eb9634
+3,E028,forward,LG_W_R,MOV_W_R,solid,#eb9634
+4,E040,forward,MOV_W_R,EXIT_S,solid,#eb9634
+5,E030,reverse,EXIT_S,MOV_N_T,dash,#eb9634
+6,E018,reverse,MOV_N_T,LG_N_T,dash,#eb9634
+7,E019,forward,LG_N_T,MOV_N_R,solid,#eb9634
+8,E031,forward,MOV_N_R,EXIT_W,solid,#eb9634
+9,E044,forward,EXIT_W,TT,solid,#eb9634

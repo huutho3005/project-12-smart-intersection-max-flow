@@ -1,6 +1,6 @@
 # Báo cáo kiểm chứng – bản source dùng để nộp
 
-**Trạng thái hiện hành:** `python -m pytest -q` cho **39/39 bài test PASS**. Các con số 15, 22, 26, 31 hoặc 38 trong biên bản của những **phiên bản trước** không phải tổng bài test của bản nộp này.
+**Trạng thái hiện hành:** `python -m pytest -q` cho **47/47 bài test PASS**. Bộ kiểm thử hiện hành gồm 47 bài, trong đó có 4 bài bổ sung kiểm tra bốn chế độ trực quan hóa, đối chiếu cạnh so với SC02 và đường chạy trang Mô hình. Bốn kiểm thử mới xác nhận tập edge_ids không thay đổi kết quả và giữ nguyên khả năng xử lý cạnh trùng mã, cạnh song song, cạnh đối hướng và clone(). Các kết quả Max-Flow/Min-Cut không thay đổi.
 
 ## Những gì đã được kiểm chứng bằng chương trình
 

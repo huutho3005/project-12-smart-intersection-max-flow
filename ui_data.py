@@ -119,3 +119,50 @@ def cut_partition_table(result):
         f"Tập S ({len(left)} đỉnh)": left + [""] * (count - len(left)),
         f"Tập T ({len(right)} đỉnh)": right + [""] * (count - len(right)),
     }
+
+
+def scenario_edge_changes(reference_edges, current_edges):
+    """Đối chiếu từng cạnh của kịch bản hiện tại với bộ cạnh tham chiếu SC02.
+
+    Kết quả là dict edge_id -> trạng thái, Capacity cũ/mới và kết nối cũ/mới.
+    Hàm chỉ so sánh dữ liệu CSV; không thay đổi đồ thị hoặc tính lại luồng.
+    """
+    reference = {edge["id"]: edge for edge in reference_edges}
+    current = {edge["id"]: edge for edge in current_edges}
+    changes = {}
+    for edge_id, edge in current.items():
+        old = reference.get(edge_id)
+        if old is None:
+            status = "added"
+            old_capacity = None
+            old_connection = None
+        else:
+            old_capacity = old["capacity"]
+            old_connection = (old["u"], old["v"])
+            new_connection = (edge["u"], edge["v"])
+            if old_connection != new_connection:
+                status = "connection_changed"
+            elif edge["capacity"] == 0 and old_capacity > 0:
+                status = "inactive"
+            elif edge["capacity"] > old_capacity:
+                status = "increased"
+            elif edge["capacity"] < old_capacity:
+                status = "decreased"
+            else:
+                status = "unchanged"
+        changes[edge_id] = {
+            "edge_id": edge_id,
+            "status": status,
+            "old_capacity": old_capacity,
+            "new_capacity": edge["capacity"],
+            "old_connection": old_connection,
+            "new_connection": (edge["u"], edge["v"]),
+        }
+    for edge_id, old in reference.items():
+        if edge_id not in current:
+            changes[edge_id] = {
+                "edge_id": edge_id, "status": "removed",
+                "old_capacity": old["capacity"], "new_capacity": None,
+                "old_connection": (old["u"], old["v"]), "new_connection": None,
+            }
+    return changes

@@ -1,0 +1,217 @@
+{
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "ram_bytes": 6236844032,
+  "timer": "time.perf_counter_ns()",
+  "source": "source hien hanh sau toi uu edge_ids, tai do truc tiep",
+  "source_sha256": {
+    "graph.py": "b5d730386db165e50687bedb3ac5a5d5a4e6d0f4db16738af03692d824b75c8b",
+    "bfs.py": "2f8fb89312153eac5b625a0565e13f59862120ccc373b7f5224184ebab4b47a1",
+    "ford_fulkerson.py": "e93150e0e9c290d9d483ce0ae41d76d3c5e4cfc9522888a10de10ce244e01654",
+    "edmonds_karp.py": "5ef7ce3df1ebc7c9ff76f9833383fcc189501fee558b45759fc72623b09892b7",
+    "scenario.py": "44f57906b440c485203071f678d6d004e54f1b4bdb7a92765922a725e9e8376c",
+    "benchmark.py": "fd0b5c6fb9b13907da17eb78bde3298302340f0083452541a9f9ce3ec21bb37f"
+  },
+  "excluded_from_timer": [
+    "CSV load",
+    "graph construction",
+    "graph cloning",
+    "UI",
+    "Plotly"
+  ],
+  "method": "median of 9 per-batch medians; one new graph for every run",
+  "args": {
+    "output": "outputs/benchmark",
+    "batches": 9,
+    "reps": 1000,
+    "large_reps": 5,
+    "warmup": 20
+  },
+  "results": [
+    {
+      "graph": "Small-6v-8e",
+      "algorithm": "DFS",
+      "vertices": 6,
+      "edges": 8,
+      "max_flow": 12,
+      "iterations": 4,
+      "batches": 9,
+      "reps_per_batch": 1000,
+      "warmup": 20,
+      "median_of_batch_medians_ms": 0.007871,
+      "batch_medians_ms": [
+        0.007912,
+        0.007861,
+        0.007882,
+        0.007881,
+        0.007862,
+        0.007871,
+        0.007871,
+        0.007871,
+        0.007901
+      ]
+    },
+    {
+      "graph": "Small-6v-8e",
+      "algorithm": "BFS",
+      "vertices": 6,
+      "edges": 8,
+      "max_flow": 12,
+      "iterations": 4,
+      "batches": 9,
+      "reps_per_batch": 1000,
+      "warmup": 20,
+      "median_of_batch_medians_ms": 0.02055,
+      "batch_medians_ms": [
+        0.020541,
+        0.02057,
+        0.0206,
+        0.02055,
+        0.0207,
+        0.02055,
+        0.02055,
+        0.0205,
+        0.02054
+      ]
+    },
+    {
+      "graph": "SC01",
+      "algorithm": "DFS",
+      "vertices": 34,
+      "edges": 44,
+      "max_flow": 6511,
+      "iterations": 12,
+      "batches": 9,
+      "reps_per_batch": 1000,
+      "warmup": 20,
+      "median_of_batch_medians_ms": 0.072757,
+      "batch_medians_ms": [
+        0.072687,
+        0.073228,
+        0.072447,
+        0.072587,
+        0.072546,
+        0.072822,
+        0.072832,
+        0.072757,
+        0.072837
+      ]
+    },
+    {
+      "graph": "SC01",
+      "algorithm": "BFS",
+      "vertices": 34,
+      "edges": 44,
+      "max_flow": 6511,
+      "iterations": 12,
+      "batches": 9,
+      "reps_per_batch": 1000,
+      "warmup": 20,
+      "median_of_batch_medians_ms": 0.357915,
+      "batch_medians_ms": [
+        0.356739,
+        0.357915,
+        0.351421,
+        0.357621,
+        0.3637,
+        0.358597,
+        0.36063,
+        0.3675,
+        0.344566
+      ]
+    },
+    {
+      "graph": "SC02",
+      "algorithm": "DFS",
+      "vertices": 34,
+      "edges": 44,
+      "max_flow": 7145,
+      "iterations": 12,
+      "batches": 9,
+      "reps_per_batch": 1000,
+      "warmup": 20,
+      "median_of_batch_medians_ms": 0.077859,
+      "batch_medians_ms": [
+        0.077669,
+        0.078129,
+        0.07817,
+        0.078115,
+        0.077634,
+        0.077534,
+        0.077859,
+        0.077684,
+        0.078445
+      ]
+    },
+    {
+      "graph": "SC02",
+      "algorithm": "BFS",
+      "vertices": 34,
+      "edges": 44,
+      "max_flow": 7145,
+      "iterations": 12,
+      "batches": 9,
+      "reps_per_batch": 1000,
+      "warmup": 20,
+      "median_of_batch_medians_ms": 0.354781,
+      "batch_medians_ms": [
+        0.357154,
+        0.362427,
+        0.351922,
+        0.350875,
+        0.354781,
+        0.356413,
+        0.35693,
+        0.353564,
+        0.352714
+      ]
+    },
+    {
+      "graph": "Large-322v-440e",
+      "algorithm": "DFS",
+      "vertices": 322,
+      "edges": 440,
+      "max_flow": 65110,
+      "iterations": 120,
+      "batches": 9,
+      "reps_per_batch": 5,
+      "warmup": 20,
+      "median_of_batch_medians_ms": 2.289704,
+      "batch_medians_ms": [
+        2.289704,
+        2.301552,
+        2.291436,
+        2.419144,
+        2.200883,
+        2.27308,
+        2.206361,
+        2.276975,
+        2.458922
+      ]
+    },
+    {
+      "graph": "Large-322v-440e",
+      "algorithm": "BFS",
+      "vertices": 322,
+      "edges": 440,
+      "max_flow": 65110,
+      "iterations": 120,
+      "batches": 9,
+      "reps_per_batch": 5,
+      "warmup": 20,
+      "median_of_batch_medians_ms": 34.889587,
+      "batch_medians_ms": [
+        38.561411,
+        42.881998,
+        37.83276,
+        34.257277,
+        34.534685,
+        34.856438,
+        34.889587,
+        35.280832,
+        34.828567
+      ]
+    }
+  ]
+}

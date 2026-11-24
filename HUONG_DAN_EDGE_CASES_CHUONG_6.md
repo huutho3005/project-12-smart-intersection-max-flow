@@ -61,4 +61,4 @@ Nếu đảo thứ tự các cạnh, BFS có thể đi đường khác ở lần
 Giữ nguyên Bảng 6.7 có 6 trường hợp của bản nháp; trong phần phụ lục D, bổ sung hàng EC03_A làm kiểm thử phụ nhằm phân biệt cầu nối Capacity=0 với trường hợp có đường thay thế. Đính kèm bảng `Ket_Qua_Edge_Cases.csv`, ảnh chụp Terminal (nếu cần) và log riêng EC05 để chứng minh mạng dư.
 
 
-**Cập nhật sau phản biện:** Trong lịch sử có mốc 22 rồi 26 test khi bổ sung định danh cung dư và manifest; **phiên bản hiện hành có 39 bài pytest**. Trong đó 7 bài liên quan trực tiếp đến Edge Cases. Nhật ký cung dư ngược dùng `history[*]["path_arcs"]`, không còn suy luận từ cặp tên đỉnh.
+**Cập nhật sau phản biện:** Trong lịch sử có mốc 22 rồi 26 test khi bổ sung định danh cung dư và manifest; **phiên bản hiện hành có 43 bài pytest**. Trong đó 7 bài liên quan trực tiếp đến Edge Cases. Nhật ký cung dư ngược dùng `history[*]["path_arcs"]`, không còn suy luận từ cặp tên đỉnh.
