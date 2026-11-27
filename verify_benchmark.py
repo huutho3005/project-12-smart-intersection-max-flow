@@ -1,7 +1,4 @@
-"""Kiểm chứng độc lập từ benchmark_raw.csv, summary.csv và metadata.json.
-Chạy: python verify_benchmark.py  (từ thư mục gốc SMART INTERSECTION)
-Không đo thời gian lại: chỉ xác thực dữ liệu, giao thức đo và mã nguồn.
-"""
+"""Kiểm tra mẫu đo, trung vị và SHA-256 mà không chạy lại benchmark."""
 import csv
 import hashlib
 import json
@@ -23,6 +20,8 @@ def verify():
     with (DIR / "benchmark_summary.csv").open(newline="", encoding="utf-8") as f:
         summary = list(csv.DictReader(f))
     metadata = json.loads((DIR / "benchmark_metadata.json").read_text(encoding="utf-8"))
+    assert metadata.get("history_saved_during_timing") is False, \
+    "Benchmark chưa tắt lịch sử mạng dư"
     batches = int(metadata["args"]["batches"])
     assert batches == 9, "Giao thức benchmark khác 9 đợt"
     buckets = defaultdict(list)

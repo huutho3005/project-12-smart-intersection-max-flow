@@ -1,9 +1,9 @@
-PASS Small-6v-8e        DFS: 0.007871 ms
-PASS Small-6v-8e        BFS: 0.020550 ms
-PASS SC01               DFS: 0.072757 ms
-PASS SC01               BFS: 0.357915 ms
-PASS SC02               DFS: 0.077859 ms
-PASS SC02               BFS: 0.354781 ms
-PASS Large-322v-440e    DFS: 2.289704 ms
-PASS Large-322v-440e    BFS: 34.889587 ms
+PASS Small-6v-8e        DFS: 0.022291 ms
+PASS Small-6v-8e        BFS: 0.019947 ms
+PASS SC01               DFS: 0.230978 ms
+PASS SC01               BFS: 0.259947 ms
+PASS SC02               DFS: 0.254532 ms
+PASS SC02               BFS: 0.289215 ms
+PASS Large-322v-440e    DFS: 8.959047 ms
+PASS Large-322v-440e    BFS: 16.678297 ms
 PASS: 54,090 mẫu thô, 8/8 trung vị, 6 mã nguồn khớp SHA-256

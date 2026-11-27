@@ -8,7 +8,7 @@
 - SHA256_TOAN_BO_SOURCE_DATA.csv và MANIFEST.json lưu SHA-256 mọi module .py,
   mã .cpp, mọi bảng CSV dữ liệu/metadata SC01–SC05, fixture, tài liệu và reference.
 - Không băm thư mục outputs vì đó là kết quả chạy có thể tự thay đổi.
-- Tổng file theo dõi: 87; fingerprint cây: 6c32c3c0bcc81a08d5d4bf44e0e142b493a07300532aacfc5a08bbb8d15e9384.
+- Tổng file theo dõi: 85; fingerprint cây: 565aea51443d90df6817e6e767f4dec1c300617b92826066b01f10eddccea9a3.
 - Sai khác sẽ ghi FAIL và chương trình trả mã lỗi; không tự sửa dữ liệu hoặc kết quả.
 
 | Scenario | Python | C++ | Chênh lệch | Min-Cut Python | Min-Cut C++ | Kết quả |

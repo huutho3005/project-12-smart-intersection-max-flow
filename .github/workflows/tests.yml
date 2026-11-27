@@ -1,0 +1,54 @@
+name: SMART INTERSECTION CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Check C++ compiler
+        run: g++ --version
+
+      - name: Run unit tests
+        run: python -m pytest -q
+
+      - name: Verify benchmark data
+        run: python verify_benchmark.py
+
+      - name: Verify committed SHA256 manifest
+        run: python kiem_tra_manifest_sha256.py
+
+      - name: Run all traffic scenarios
+        run: python main.py --all
+
+      - name: Run sensitivity analysis
+        run: python sensitivity_analysis.py
+
+      - name: Verify Python and C++
+        run: python verify_python_cpp.py
+
+      - name: Verify independent processes
+        run: python verify_independent_processes.py
+
+      - name: Verify generated manifest
+        run: python kiem_tra_manifest_sha256.py

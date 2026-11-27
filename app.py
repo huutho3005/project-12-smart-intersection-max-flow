@@ -1,8 +1,4 @@
-"""SMART INTERSECTION: web Streamlit 6 trang, dùng thuật toán đã kiểm chứng.
-
-Khởi chạy: streamlit run app.py
-KHÔNG cài lại Edmonds–Karp trong giao diện và KHÔNG dùng Max-Flow gán cứng.
-"""
+"""Giao diện Streamlit cho mô hình nút giao SMART INTERSECTION."""
 import csv
 from io import StringIO
 
@@ -84,7 +80,7 @@ with st.sidebar:
                  format_func=lambda sid: SID_LABELS.get(sid, sid),
                  key="sidebar_sid", on_change=change_selected_scenario)
     st.caption("Nguồn dữ liệu: data/scenarios/SC01–SC05")
-    st.caption("Thuật toán: 8 module Python gốc, không sửa kết quả")
+    st.caption("Thuật toán: Edmonds–Karp và Ford–Fulkerson")
 
 sid = st.session_state["selected_sid"]
 

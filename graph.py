@@ -114,3 +114,16 @@ def path_names(graph, path, source):
     for u, i in path:
         names.append(graph.adj[u][i]["to"])
     return names
+
+
+
+def ensure_zero_flow(graph):
+    """Kiểm tra đồ thị chưa có luồng trước khi chạy thuật toán."""
+
+    for edge in graph.original_flows():
+        if edge["flow"] != 0:
+            raise ValueError(
+                "Đồ thị đã có luồng. Hãy sử dụng graph.clone()."
+            )
+
+    return True

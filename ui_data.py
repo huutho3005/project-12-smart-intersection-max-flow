@@ -1,7 +1,4 @@
-"""Cầu nối dữ liệu giữa website và 8 module thuật toán đã kiểm chứng.
-
-KHÔNG cài đặt lại BFS/DFS/Edmonds-Karp/Min-Cut và không gán cứng kết quả.
-"""
+"""Chuẩn bị dữ liệu thuật toán cho giao diện Streamlit."""
 from scenario import load_scenario, available_scenarios
 from edmonds_karp import edmonds_karp
 from ford_fulkerson import ford_fulkerson_dfs
@@ -13,7 +10,7 @@ def scenario_catalog():
 
 
 def run_scenario(scenario_id):
-    """Tự đọc CSV và tự tính lại từ đầu; không làm biến đổi data trên đĩa."""
+    """Tính luồng từ CSV của một kịch bản."""
     original, movements, lanes, info = load_scenario(scenario_id)
     graph_bfs = original.clone()
     graph_dfs = original.clone()  # DFS và BFS không chia sẻ mạng dư
@@ -48,7 +45,7 @@ def run_scenario(scenario_id):
 
 
 def run_all():
-    """Chạy 5 kịch bản thật trên cùng bộ thuật toán."""
+    """Tính luồng cho toàn bộ kịch bản."""
     return [run_scenario(sid) for sid in sorted(scenario_catalog())]
 
 
