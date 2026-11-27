@@ -42,8 +42,64 @@ def check_flow_conservation(graph, source="SS", sink="TT"):
     return balance[sink]
 
 
+def check_residual_invariant(graph):
+    """Kiểm tra tính nhất quán của từng cặp cung dư."""
+
+    for edge in graph.edges:
+        u = edge["u"]
+        v = edge["v"]
+        i = edge["index"]
+        edge_id = edge["id"]
+
+        if not 0 <= i < len(graph.adj[u]):
+            raise AssertionError("Sai index tại " + edge_id)
+
+        forward = graph.adj[u][i]
+        j = forward["rev"]
+
+        if not 0 <= j < len(graph.adj[v]):
+            raise AssertionError("Sai rev tại " + edge_id)
+
+        reverse = graph.adj[v][j]
+
+        if forward["to"] != v or reverse["to"] != u:
+            raise AssertionError("Sai đầu mút tại " + edge_id)
+
+        if forward["edge_id"] != edge_id:
+            raise AssertionError("Sai edge_id cung thuận")
+
+        if reverse["edge_id"] != edge_id:
+            raise AssertionError("Sai edge_id cung ngược")
+
+        if forward["arc_type"] != "forward":
+            raise AssertionError("Sai loại cung thuận")
+
+        if reverse["arc_type"] != "reverse":
+            raise AssertionError("Sai loại cung ngược")
+
+        # Hai cung phải trỏ ngược lại nhau.
+        if reverse["rev"] != i:
+            raise AssertionError("Sai liên kết cung đảo")
+
+        rf = forward["res"]
+        rr = reverse["res"]
+
+        if rf < 0 or rr < 0:
+            raise AssertionError("Dung lượng dư âm")
+
+        # Tổng dung lượng dư phải bằng Capacity gốc.
+        if rf + rr != edge["capacity"]:
+            raise AssertionError(
+                "Vi phạm bất biến mạng dư tại " + edge_id
+            )
+
+    return True
+
+
+
 def verify_max_flow(graph, max_flow, source="SS", sink="TT"):
     """Kiểm tra độc lập: luồng hợp lệ + không còn đường tăng + MinCut bằng MaxFlow."""
+    check_residual_invariant(graph)
     check_capacity_constraint(graph)
     value_at_sink = check_flow_conservation(graph, source, sink)
     if value_at_sink != max_flow:
@@ -125,6 +181,28 @@ def validate_scenario_metadata(graph, movements, lane_groups, scenario_id):
         outgoing = [e for e in graph.edges if e["u"] == lg and e["v"].startswith("MOV_")]
         if len(incoming) != 1 or len(outgoing) != len(mapped):
             raise ValueError("Số kết nối không đúng tại " + lg)
+                # Kiểm tra đúng hướng tiếp cận của nhóm làn.
+        direction = lane["direction"]
+
+        if direction not in ("N", "S", "E", "W"):
+            raise ValueError(
+                "Hướng Lane Group không hợp lệ: " + lg
+            )
+
+        expected_app = "APP_" + direction
+
+        if incoming[0]["u"] != expected_app:
+            raise ValueError(
+                "Sai hướng tiếp cận tại " + lg
+            )
+
+        # Movement phải cùng hướng xuất phát với nhóm làn.
+        for mid in mapped:
+            if mov_by_id[mid]["origin_direction"] != direction:
+                raise ValueError(
+                    "Sai hướng xuất phát của " + mid
+                )
+
         if not active:
             if lane_count != 0 or capacity != 0 or mapped or incoming[0]["capacity"] != 0:
                 raise ValueError("Nhóm làn ngừng hoạt động chưa đồng bộ: " + lg)

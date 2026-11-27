@@ -1,11 +1,4 @@
-"""Kiểm chứng độc lập 2 tiến trình: Python main.py và chương trình C++17 tự cài.
-
-Lệnh: python verify_independent_processes.py
-* Chạy Python thành tiến trình riêng và đọc CSV kết quả do Python tạo.
-* Biên dịch C++17, chạy thành tiến trình riêng trên cùng tập CSV đầu vào.
-* So sánh kết quả TỰ TÍNH từ hai chương trình. Không sử dụng giá trị chuẩn gán sẵn.
-* Khi khác nhau: lưu cả hai log, ghi FAIL, thoát mã lỗi 1 (KHÔNG sửa kết quả).
-"""
+"""Chạy Python và C++ độc lập, so sánh kết quả và tạo manifest SHA-256."""
 import csv
 import hashlib
 import io
@@ -32,13 +25,14 @@ def collect_version_manifest():
     Không đưa outputs, Python/pytest cache hoặc thư mục môi trường ảo vào hash.
     outputs là sản phẩm sau chạy; cache cũng chỉ là tệp tạm tạo khi kiểm thử.
     """
-    tracked_extensions = {".py", ".cpp", ".csv", ".md", ".txt", ".png", ".pdf"}
+    tracked_extensions = {".py", ".cpp", ".csv", ".md", ".txt", ".png", ".pdf", ".yml", ".yaml"}
     ignored_dirs = {"outputs", "__pycache__", ".pytest_cache", ".mypy_cache",
                     ".ruff_cache", ".git", ".venv", "venv", "env", "build",
                     "dist", ".tox", ".nox"}
     entries = []
     for path in ROOT.rglob("*"):
-        if not path.is_file() or path.suffix.lower() not in tracked_extensions:
+        if not path.is_file() or (path.suffix.lower() not in tracked_extensions
+                                  and path.name != ".gitignore"):
             continue
         rel = path.relative_to(ROOT)
         if any(part in ignored_dirs for part in rel.parts):
@@ -187,7 +181,8 @@ def main():
         "all_version_files": tracked_files,
         "all_version_file_count": len(tracked_files),
         "source_data_tree_sha256": tree_hash,
-        "tracked_extensions": [".py", ".cpp", ".csv", ".md", ".txt", ".png", ".pdf"],
+        "tracked_extensions": [".py", ".cpp", ".csv", ".md", ".txt", ".png", ".pdf", ".yml", ".yaml"],
+        "tracked_filenames": [".gitignore"],
         "excluded_generated_paths": ["outputs", "__pycache__"],
         "scenario_count": len(results),
         "passed": passed,

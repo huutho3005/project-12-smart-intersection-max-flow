@@ -95,31 +95,6 @@ def run():
     write_csv(OUTPUT / "BaoCao_DFS_BFS_MinCut_5KB.csv", list(summary[0]), summary)
     write_csv(OUTPUT / "ChiTiet_Canh_MinCut_5KB.csv", list(details[0]), details)
 
-    with (OUTPUT / "BAO_CAO_BAO_VE_VAN_DAP.md").open("w", encoding="utf-8") as f:
-        f.write("# Kết quả đối chiếu Ford–Fulkerson DFS, Edmonds–Karp BFS và Minimum Cut\n\n")
-        f.write("Nguồn: dữ liệu `data/scenarios/SC01–SC05`, thuật toán chạy thật. Đơn vị: xe quy ước/giờ.\n\n")
-        f.write("| Kịch bản | Demand | BFS | DFS | Min-Cut | Lần tăng BFS/DFS | Đánh giá |\n")
-        f.write("|---|---:|---:|---:|---:|---:|---|\n")
-        for r in summary:
-            f.write("| {scenario_id} | {demand:,} | {max_flow_bfs:,} | {max_flow_dfs:,} | {min_cut_bfs:,} | {bfs_augmentations}/{dfs_augmentations} | {test_result} |\n".format(**r))
-        f.write("\n## Nguồn gốc các giới hạn của lát cắt\n\n")
-        f.write("| Kịch bản | Demand đầu vào | Nhóm làn | Lối ra | Tổng Min-Cut |\n")
-        f.write("|---|---:|---:|---:|---:|\n")
-        for r in summary:
-            f.write("| {scenario_id} | {cut_demand_capacity:,} | {cut_lane_capacity:,} | {cut_exit_capacity:,} | {min_cut_bfs:,} |\n".format(**r))
-        f.write("\n## Những lưu ý bắt buộc khi giải thích\n\n")
-        f.write("- Min-Cut được tìm bằng BFS từ SS trên mạng dư cuối, sau đó lấy cạnh GỐC S -> T.\n")
-        f.write("- Cạnh APP -> LG trong cut thể hiện Demand giới hạn đầu vào; không tự kết luận đó là điểm ùn tắc vật lý.\n")
-        f.write("- SC04: EXIT_N và EXIT_E nằm trong cut, mỗi cạnh có dung lượng 2.052.\n")
-        f.write("- SC05: E007 có Capacity = 0 do làn LG_N_R bị vô hiệu chủ đích, không phải nút thắt vật lý.\n")
-        f.write("- SC05: E006 là cạnh dùng chung T/R và đã đầy, dù không nằm trong lát cắt cụ thể do BFS chọn.\n")
-        f.write("- Có thể tồn tại nhiều lát cắt tối thiểu khác nhau cùng dung lượng.\n")
-        f.write("- DFS và BFS dùng bản sao mạng độc lập. Với dung lượng nguyên không âm, FF dùng DFS kết thúc.\n")
-        f.write("- Hai thuật toán cùng dùng hàm augment() nên kiểm tra DFS/BFS không thay cho kiểm chứng độc lập bằng C++.\n")
-        f.write("\n## Chuỗi xử lý Minimum Cut\n\n")
-        f.write("Edmonds-Karp -> Mạng dư cuối -> BFS từ SS qua residual > 0 -> S -> T=V\\S -> cạnh gốc S->T -> tổng Capacity.\n")
-        f.write("\n## Vị trí chèn vào báo cáo\n\n")
-        f.write("Chương 4.6 (DFS), 4.7 (Min-Cut), 4.8 (kiểm chứng), Chương 6.10 (so sánh), Chương 7.3–7.6 (điểm nghẽn).\n")
     print("Đã tạo các báo cáo tại", OUTPUT)
     for row in summary:
         print(row["scenario_id"], "BFS", row["max_flow_bfs"], "DFS", row["max_flow_dfs"], "MinCut", row["min_cut_bfs"], "lần tăng", row["bfs_augmentations"], row["dfs_augmentations"])

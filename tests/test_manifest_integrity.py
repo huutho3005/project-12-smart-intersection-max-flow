@@ -15,7 +15,9 @@ class TestManifestIntegrity(unittest.TestCase):
                      "ford_fulkerson.py", "min_cut.py", "validator.py",
                      "scenario.py", "main.py", "cpp_edmonds_karp.cpp",
                      "data/Nodes.csv", "data/Scenarios.csv",
-                     "tests/test_edge_cases.py", "VIET_TAY.md"]:
+                     "tests/test_edge_cases.py", "README.md", "benchmark.py",
+                     "sensitivity_analysis.py", ".github/workflows/tests.yml",
+                     ".gitignore"]:
             self.assertIn(name, files)
         for sid in ["SC01", "SC02", "SC03", "SC04", "SC05"]:
             for table in ["Edges.csv", "Lane_Groups.csv", "Movements.csv"]:

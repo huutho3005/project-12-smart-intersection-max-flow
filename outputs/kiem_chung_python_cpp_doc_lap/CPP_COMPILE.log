@@ -1,2 +1,2 @@
-COMMAND: /usr/bin/g++ -std=c++17 -O2 -Wall -Wextra /mnt/data/smart_path_arcs_fix/src/cpp_edmonds_karp.cpp -o /tmp/smart_intersection_compare_cou410vx/ek_cpp_independent
+COMMAND: /usr/bin/g++ -std=c++17 -O2 -Wall -Wextra /home/nguyenhuutho/project-12-smart-intersection-max-flow/cpp_edmonds_karp.cpp -o /tmp/smart_intersection_compare_1p3nqxjk/ek_cpp_independent
 RETURN_CODE: 0
